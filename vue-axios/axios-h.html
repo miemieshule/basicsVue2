@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue axios </title>
+
+    <!-- vue2 文件引入 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- 模仿服务器 文件引入 -->
+    <script src="http://mockjs.com/dist/mock.js"></script>
+
+    <!-- axiios文件引入 类似ajax -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+</head>
+
+   
+
+<body>
+    <!-- 单词 -->
+     <!-- change改变事件触发 upload 上传方法  -->
+
+    <!-- a1 参观axios -->
+    <!-- <form id="yz-hello">
+    </form> -->
+
+
+    <!--  a3 文件上传请求 数据发送请求  -->
+    <!-- <form id="yz-hello">
+        <input type="file" name="icon" id="" v-on:change="upload" ref="icon">
+    </form> -->
+
+
+    <!--  a4 文件上传请求 数据发送请求  -->
+    <!-- FormData 类 new出 对象 ，把所有form表单数据一次性的“form化” -->
+    <!-- <form id="yz-hello">
+        <input type="file" name="icon" id="" v-on:change="upload" ref="icon">
+    </form> -->
+
+
+    <!-- // a5 
+    // 文件上传加载提示消息 -->
+    <!-- <form id="yz-hello">
+        <input type="file" name="icon" id="" v-on:change="upload" ref="icon">
+        <br>
+        <small v-show = "inProgress">在上传中.....{{percentage}}</small>
+         标签呈现小号字体效果。
+    </form> -->
+
+
+
+    <!-- // a6 请求完成后，获取服务器响应数据  -->
+    <!-- <form id="yz-hello">
+        <input type="file" name="icon" id="" v-on:change="upload" ref="icon">
+        <br>
+        <small v-show = "inProgress">在上传中.....{{percentage}}</small>
+    </form> -->
+
+
+    <!-- // a7 -->
+    <!-- // 功能：从服务器拿到图片资源 然后在html元素补充路径显示  -->
+    <!-- // 需求 ：图片上传完成 在页面上显示上传的图片内容  -->
+    <!-- <form id="yz-hello">
+        <input type="file" name="icon" id="" v-on:change="upload" ref="icon">
+        <br>
+        <small v-show = "inProgress">在上传中.....{{percentage}}</small>
+        <img   v-if="show" v-bind:src="imgSrc" alt="图片">
+    </form> -->
+
+    
+
+
+        <!-- // a8 捕获失败请求  -->
+    <!-- // 目的：请求服务器 返回请求失败 处理请求失败情况  -->
+    <!-- // 功能：用户点击，获取服务器数据，返回请求失败，页面提示请求情况  -->
+    <!-- <form id="yz-hello">
+        <input type="file" name="icon" id="" v-on:change="upload" ref="icon">
+        <br>
+        <small v-show = "inProgress">在上传中.....{{percentage}}</small>
+        <img   v-if="show" v-bind:src="imgSrc" alt="图片">
+    </form> -->
+
+
+
+    <!-- // a9 超时请求 设置超时时间   -->
+    <!-- // 目的：可以连通但耗时过长由前端主动终止 -->
+    <form id="yz-hello">
+        <input type="file" name="icon" id="" v-on:change="upload" ref="icon">
+    </form>
+
+
+
+
+
+</body>
+<script   src="/vue-axios/axios-j.js"> </script>
+</html>

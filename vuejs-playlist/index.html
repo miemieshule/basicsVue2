@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 2 基础学习 </title>
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="/vuejs-playlist/style.css">
+    <!-- vue2 文件引入 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- axiios文件引入 类似ajax -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+
+    <!-- a1学习 传输值 返回值 -->
+    <!-- <div id="vue-app">
+        <h1>{{greet(' afernoon') }}</h1>
+        <p>Name:{{name}}</p>
+        <p>job:{{job}}</p>
+    </div> -->
+
+
+    <!-- a2学习  绑定数据-->
+    <!-- <div id="vue-app">
+        <h1>{{greet(' afernoon') }}</h1>
+        <p>Name:{{name}}</p>
+        <a v-bind:href="website"> The ner ninja 忍者  </a>
+        <input type="text" v-bind:value="name">
+        <input type="text" v-bind:value="job">
+        <p v-html="websiteTag"></p>
+    </div> -->
+
+
+
+
+
+
+
+    <!-- a3学习 点击事件 -->
+    <!-- <div id="vue-app">
+        <h1>Events</h1>
+        <button v-on:click="age++">Add 加一岁 </button>
+        <button v-on:click="age--" >subercat 减一岁 </button>
+        <p>age: {{age}}</p>
+    </div> -->
+
+    <!-- a3 双击事件 -->
+    <!-- <div id="vue-app">
+        <h1>Events</h1>
+        <button v-on:click="add(1)">Add 加1岁 </button>
+        <button v-on:click="subtrct(1)" >subercat 减1岁 </button>
+        <button v-on:dblclick="add(10)">Add 加10岁 </button>
+        <button v-on:dblclick="subtrct(10)" >subercat 减10岁 </button>
+        <p>age: {{age}}</p>
+    </div> -->
+
+    <!-- a3 事件修饰符 -->
+    <!-- <div id="vue-app">
+        <h1>Events</h1>
+        <button v-on:click.once="add(1)">Add 加1岁 </button>
+        <p>age: {{age}}</p>
+        <a v-on:click.prevent="click" href="https://17bang.ren/Code/242">学习站点</a>
+    </div> -->
+    <!-- .once 只允许执行一次 -->
+    <!--需求： 点击提示链接 弹窗提示 关闭弹窗 不允许跳转  取除事件默认行为  prevent-->
+
+    <!-- a3 键盘事件 -->
+    <!-- <div id="vue-app">
+        <h1>Key board Events 键盘事件</h1>
+        <label>Name:</label>
+        <input type="text" v-on:keyup.enter="logName">
+        <label>Age:</label>
+        <input type="text" v-on:keyup="logAge" >
+    </div> -->
+    <!-- 标签里引用事件 和在视图对象中写事件是一样的效果 -->
+    <!-- 指定某个键松开后执行事件 enter -->
+
+        
+
+
+
+
+    <!-- a4 双向绑定 -->
+    <!-- <div id="vue-app">
+        <h1>Key board Events 键盘事件</h1>
+        <label>Name:</label>
+        <span>{{name}}</span>
+        <input type="text" v-model="name"> 
+        <label>Age:</label>
+        <input type="text" v-model="age" >
+        <span>{{age}}</span>
+    </div> -->
+    <!-- {{span}} 的值，不在视图实例中 -->
+    <!-- 需求 用户输入内容时候 span更新用户输入内容 -->
+    <!-- v-model="name" 检查是否参与实例 ，并且更新实例中字段值，然后{{name}} 拿到新节点 更新 -->
+
+
+
+    <!-- a5 属性计算 -->
+    <!-- 任何复杂逻辑，你都应当使用计算属性  -->
+    <!-- <div id="vue-app">
+        <h1>Computed properties 计算属性 </h1>
+        <button v-on:click="a++">Add to </button>
+        <button v-on:click="b++" >Add to B </button>
+        <p>-{{a}}</p>
+        <p>-{{b}}</p>
+
+        <p>Age + A = {{addToA}} </p>
+        <p>Age + B = {{addToB}} </p>
+    </div> -->
+    <!--两个不同的方法 addta addtb，执行a， 从上到下执行所有， 执行b 也是同样，虽然b方法返回值执未执行 ，但是打印方法执行  -->
+    <!-- ，每当触发重新渲染时， 调用方法methods 将总会再次执行函数。 -->
+
+    <!--需求实现 ： 20岁 调用 a值 输出  -->
+    <!-- 重点 渲染函数中设定字段和值 ，模板使用字段 ，如果模板字段值在模板中发生计算变化，渲染函数中字段值也会同步变化   -->
+    <!-- 点击事件产生值 后面在调用点击事件产生的a值 进行输出 -->
+    
+    <!-- 
+        模板内计算问题
+        <p>-{{a}}</p>
+        <p>-{{b}}</p>
+        赋值逻辑问题 模板中计算字段 a++ 在前， -a在后， -a会覆盖前面的+ 
+    -->
+
+
+    <!-- a6 属性绑定学习  -->
+    <!-- <style>
+        span{
+        background: red;
+        display: inline-block;
+        padding: 10px;
+        color: #fff;
+        margin: 10px 0;
+    }
+
+    .available span{
+        background: green;
+    }
+
+    .nearby span:after{
+        content: "nearby";
+        margin-left: 10px;
+    }
+
+    /* available  可获得的  */
+
+    </style> -->
+
+    <!-- <div id="vue-app"> -->
+        <!-- <h1>Dynamic CSS</h1>
+        <h2>Example 1</h2>
+        <div v-on:click="available = !available" v-bind:class="{available: available}">
+        <span>Ryu</span>
+        </div> -->
+
+        <!-- <h2>Example 2</h2>
+        <button v-on:click="a = !a">Toggle nearby</button>
+        <button v-on:click="b = !b">Toggle available</button>
+        <div v-bind:class="compClasses">
+        <span>Ryu</span>
+        </div> -->
+    <!-- </div> -->
+
+
+    <!-- <style>
+        a{
+        background: red;
+        display: inline-block;
+        padding: 10px;
+        color: #fff;
+        margin: 10px 0;
+    }
+
+    .a1 a{
+        background: green;
+    }
+
+    .b1 a:after{
+        content: "nearby";
+        margin-left: 10px;
+    }
+
+    /* available  可获得的  */
+
+    </style> -->
+
+    <!-- a6 复刻版 -->
+    <!-- <div id="vue-app">
+        <button v-on:click="b1boolean = !b1boolean">Toggle nearby</button>
+        <button v-on:click="a1boolean = !a1boolean">Toggle available</button>
+        <div v-bind:class="compClasses">
+            <a  href="">魔改</a>
+        </div>
+    </div> -->
+    <!-- 特点  -->
+    <!-- 点击时候 没有设置方法 通过绑定计算属性中一个类 ，点击时候 布尔值发生改变，触发计算属性中的方法开始执行  -->
+    <!-- 对想要的元素进行，操作，那么必须在外层的壳子上设置 -->
+    <!-- 点击以后 居然还可以返回类 然后布尔值 决定类是否执行 -->
+    <!-- 最后 return 返回的是一个对象  -->
+
+    <!-- 再次研究  特点-->
+    <!-- 分离性 原来的dom是一个元素范围绑定一个事件跑 -->
+    <!-- vue 事件和执行函数是分开的  一个点击事件在按钮上  一个执行函数在div上  并且执行函数里设置两种不同的点击事件  -->
+
+
+
+    <!-- b1 即时修改-->
+        <!-- 控制台修改 vm.greet = '一起帮' -->
+    <!-- <h1 id="yz-hello"> 
+        {{greet}} 
+    </h1> -->
+
+
+    <!-- b2 禁止变化 最初加载时绑定一次-->
+    <!--v-once -->
+    <!-- v-on:click.once="add(1)" -->
+    <!-- <h1 v-once  id="yz-hello"> 
+        {{greet}} 
+    </h1> -->
+
+
+    <!-- b3 js表达式 -->
+    <!--在花括号中的使用 运算  调用方法的叫js 表达式  -->
+    <!-- 资料 -->
+    <!-- <button v-on:click="age++">Add 加一岁 </button>
+    <p>Age + A = {{addToA}} </p>  调用计算属性的addtoA方法 -->
+    <!-- <h1>{{greet(' afernoon') }}</h1> -->
+    <!-- b3 -->
+    <!-- <h1 v-once  id="yz-hello"> {{greet.substring(1)}} </h1>   -->
+
+
+    <!-- b4 属性绑定 titl属性-->
+        <!-- 参考资料 -->
+    <!-- <a v-bind:href="website"> The ner ninja 忍者 href属性绑定 </a>
+    <input type="text" v-bind:value="name"> vlue 属性绑定 -->
+    <!-- <h1 v-bind:title="who + '1' "  id="yz-hello">飞哥 属性使用js表达式 + </h1> -->
+    
+
+
+    <!-- b5 绑定true值 于 flase值 -->
+    <!-- 结论 该属性直接不予显示  -->
+
+
+
+    <!-- b6 属性绑定   动态参数 -->
+        <!-- 参考资料 -->
+    <!-- <h1 v-bind:title="who + '1' "  id="yz-hello">飞哥 属性使用js表达式 + </h1> -->
+    <!-- 上面title是写死的 who是活的 重命名的 在渲染函数里面 -->
+    <!-- b6内容 -->
+    <!-- <h1 v-bind:[attr]="who" id="yz-hello">{{greet}}</h1> -->
+    <!-- 上面attr是活的 重命名的 在渲染函数里面 ,当成变量用 里面存着title属性,who也是活的  -->
+
+    
+
+    <!-- b7 class 样式类 绑定 -->
+    <!-- <h1 id="yz-hello" v-bind:class="[bg,fs]">hello，源栈</h1> -->
+
+
+    <!-- b8 class 样式类 决定是否使用 -->
+    <!-- <h1  id="yz-hello"  v-bind:class="{blue:isActive}">hello，源栈</h1> -->
+    <!-- vm.isActive = false -->
+    <!-- 资料1 多个类  对象中 ，可以传多个类名 ，类名值： 在渲染设置参数，能用还是不能用 "{blue:isActive, italic:needEmphasis}" -->
+    <!-- 资料2 对象和数组混用 数组是装多个类的 [bg,{italic:needEmphasis}] 一 区别 ：个用原生类名 一个不用原生类名  -->
+
+
+
+    <!-- b9 style 样式 绑定 -->
+    <!-- 行内绑定类 -->
+    <!-- 行内绑定背景色 背景色值 渲染函数控制 -->
+    <!-- <h1 id="yz-hello" v-bind:style="{fontStyle:fs, backgroundColor:bg}">杨嘉栋</h1> -->
+    
+    
+    <!-- b10 条件渲染（v-if-else） -->
+    <!-- 条件控制元素 是否显示 -->
+    <!-- <div id="yz-hello">
+        <h1 >源栈欢迎你 要努力学习 </h1>    
+        <a v-if="isAuthor">修改</a>
+        <a v-else-if="isAdmin">删除</a>
+        <span v-else>你无权修改</span>
+    </div> -->
+    <!-- 问题 -->
+    <!-- 无法使用v-if 两个实例范围冲突了  因为我上面那个 app 的id块包含了 下面的那个 app2 的id块  -->
+
+
+    <!-- b11 条件渲染（v-if-else）和 v-show 的区别 -->
+    <!-- <div id="yz-hello">
+        <h1 >源栈欢迎你 要努力学习 </h1>    
+        <a v-if="isAuthor">1修改</a>
+        <a v-show="isshow">2修改</a>
+    </div> -->
+    <!-- v-if 为渲染 v-show 显示 一个if判断后决定是否加载节点 一个不论结果直接加载然后样式进行调整不显示-->
+    <!-- 使用 如果数据经常变化 就用show 只调节style 不重新加载 , 如果数据稳定 就用 v-if  -->
+
+
+    <!-- b12 列表渲染 -->
+    <!-- 数组内容循环 增加节点 -->
+    <!-- <div id="yz-hello">
+        <ul>
+            <li v-for="student in students">{{'欢迎新同学：'+student}}</li>
+        </ul>
+    </div> -->
+
+
+    <!-- b13 列表渲染 -->
+    <!--数组内容循环 数组下标循环 节点增加 -->
+    <!-- <div id="yz-hello">
+        <ul>
+            <li v-for="(student,index) in students">
+              
+                {{index+1}} - {{'欢迎新同学：'+student}}
+            </li>
+
+        </ul>
+    </div> -->
+
+
+    <!-- b14 数组中 对象 循环输出 -->
+    <!-- 循环输出对象属性 输出对象值-->
+    <!-- <div id="yz-hello">
+        <ul>
+            <li v-for="(student,index) in students">
+                {{index+1}} - {{'欢迎新同学：'+ student}}
+            </li>
+            <li v-for="student of students">
+                {{'欢迎新同学'+student+':'+student}}
+            </li>
+        </ul>
+    </div> -->
+    <!-- li可以循环增加 换成p标签也一样      -->
+    <!-- {{index+1}} - {{'欢迎新同学：'+ student}}   模板中不做'欢迎新同学：'+计算 输出数组对象所有值{ "id": 12, "score": 98 }，    模板中做计算输出- 欢迎新同学：[object Object] -->
+
+
+
+    <!-- b15 循环输出 -->
+    <!-- 循环输出对象属性 输出对象值 对象属性下标 -->
+    <!-- <div id="yz-hello">
+        <ul>
+            <li v-for="(prop,key,i) in student">
+                [{{i}}]{{key}}：{{prop}}
+            </li>
+        </ul>
+    </div> -->
+
+
+    <!-- b16 循环输出 -->
+    <!-- 循环输出 数组 中 对象属性不规律情况  值输出  -->
+    <!-- <div id="yz-hello">
+        <li v-for="(student,i) in students">
+            <span v-for="value in student"> [{{i}}] {{value}}；</span>
+        </li>
+    </div> -->
+    <!-- 重点 先循环出student的所有值集合 为student ，在用student集合循环出其中单个值  value代表student每一个值 -->
+
+
+    
+
+    <!-- b17 响应式修改数组内容 -->
+    <!--  响应式条件 数组整体修改 vm.students = ['飞哥', '小鱼'] -->
+    <!--  响应式修改 数组中单个元素 js中Arry数组定义的方法 vm.students.shift() shift 删除头部元素 vm.students.unshift('邹丽')添加元素  -->
+    <!--  响应式替换  数组中单个元素 js中数组方法  vm.students.splice(1,1,'大飞哥')  下标1开始 第一个1元素 ，替换新内容 -->
+    <!--  响应式返回新数组替换 vm.students = vm.students.concat('飞哥') -->
+    
+    
+    
+    
+    <!-- b18 指令 v-if 和 v-for 结合使用   -->
+    <!-- <div id="yz-hello">
+        <p v-for="(student,i) of students" v-if="i>1">
+            <span>{{i}}</span>: {{student}}
+         </p>
+    </div> -->
+    <!-- 面试题 if和for能否组合使用坏处 -->
+    <!-- 性能严重浪费 for必然跑一遍虚拟dom  -->
+    <!-- 单纯判断是否显示整体列表 先if  -->
+    <!-- 必须判断 列表具体值 计算属性 -->
+
+
+
+
+
+
+
+
+
+    <!-- b19 vue 钩子函数生命周期  -->
+    <!-- 生命周期方法 从生到死不同阶段调用不同方法  -->
+    <!-- <h1 id="yz-hello">
+        {{greet}}
+    </h1> -->
+    <!-- 钩子函数不按照顺序执行 只是一种声明 该谁先就谁  -->
+
+
+
+    <!--b20 响应式原理  -->
+    <!-- Vue 将遍历此对象所有的 property，并使用 Object.defineProperty 把这些 property 属性和值  全部转为 getter/setter -->
+    <!-- 在 property 被访问和修改时通知变更。 set变更重新渲染虚拟dom节点  -->
+    <!-- vue 拿到数据 绑定监察响应方法 如果修改了属性 调用监察响应中的更改方法 重新渲染  -->
+
+
+
+    <!-- b21 计算属性  -->
+    <!-- 参考资料 油管 -->
+    <!-- <button v-on:click="a++">Add to </button>
+    <p>Age + A = {{addToA}} </p>
+    //     computed:{
+    //         addToA:function(){
+    //         console.log('adda');
+    //         return this.a + this.age;
+    //         }, -->
+    
+    <!-- <h1 id="yz-hello">{{summary}}</h1> -->
+
+
+
+
+
+    <!-- b22 列表筛选 for if   -->
+    <!-- 用计算属性筛选 -->
+    <!-- 参考资料 油管 -->
+    <!-- <div  id="yz-hello" >
+        <h1 v-for = "(s,i) in  filtered" >
+            <p >{{s}}</p>
+        </h1>
+   
+    </div> -->
+    <!-- 两道for过滤出来的数组元素  -->
+
+
+    <!--b23 计算属性 set   -->
+    <!-- 当suanmmary属性值被改变时候，触发set方法  -->
+    <!-- <div  id="yz-hello" >
+        {{summary}}
+    </div> -->
+
+
+    <!--b24 计算属性 set   -->
+    <!--// 每次改变一次data的随意 a属性一个值 ，mathods 方法就会重新运行一遍，其中的 b 属性值计算 c属性值 d属性值 进行计算 ，重新渲染一遍  -->
+
+
+
+    <!--b25 监控钩子函数 watch   -->
+    <!-- 只监控数据是否发生变化 -->
+    <!-- <div  id="yz-hello" >
+        {{body}}
+    </div> -->
+    <!-- 在watch使用了data数据  运行时 不会触发 watch ，修改data数据时 触发watch  -->
+
+
+
+    <!-- b26  methods构造函数-->
+    <!-- <div  id="yz-hello" >
+        {{summary()}}
+    </div> -->
+
+
+
+    <!-- b27 表单 input 绑定 -->
+    <!-- 参考资料 -->
+    <!-- 双向绑定 输入查看效果 -->
+    <!-- <input type="text" v-model="age" >
+    <span>{{age}}</span> -->
+    <!-- 双向绑定 绑定值为对象其中一个值 -->
+    <!-- <div  id="yz-hello" >
+        <input type="text" v-model="body.full" value="一起帮" />
+        <span>{{body.full}}</span>
+    </div> -->
+
+
+    <!--  b28 表单 radio 单选框 绑定   -->
+    <!-- <div  id="yz-hello" >
+        <label v-for="s of students">
+            <input  type="radio" v-bind:value="s.id" v-model="selectedId" />{{s.name}}
+        </label>
+    </div> -->
+
+
+
+
+    <!--  b29 表单 checkbox 复选框 绑定   -->
+    <!-- 单个 -->
+    <!-- <div  id="yz-hello" >
+        <input type="checkbox" v-model="remember" />记住我
+    </div> -->
+
+
+    <!--  b30 表单 checkbox复选框 绑定   -->
+    <!--多个 复选框 -->
+    <!-- <div  id="yz-hello" >
+        <input type="checkbox" value="1" v-model="students" />夏康平
+        <input type="checkbox" value="12" v-model="students" />陈国栋
+        <input type="checkbox" value="6" v-model="students" />韩佳宝
+    </div> -->
+
+
+
+    <!--  b31 表单checkbox 复选框 绑定   -->
+    <!--循环绑定复选框 -->
+    <!-- v-model="enrolleds" v-model="s.enrolled"   -->
+    <div  id="yz-hello" >
+        <label v-for="s of students">
+            <input  type="checkbox" :value="s.id" v-model="enrolleds"    />{{s.name}}
+        </label>
+    </div>
+
+
+
+
+    <!--  b32 表单 select 下拉列表 绑定   -->
+    <!-- <div  id="yz-hello" >
+        <select v-model="selectedId"> 
+            <option value="0" >---</option>
+            <option v-for="s of students" :value="s.id" >{{s.name}}</option>
+        </select>
+    </div> -->
+    <!--注意v-model放置在select元素中，添加mutiple变成多选-->
+    <!-- 额外添加一个option： 作用 -->
+
+
+
+
+    <!-- v-model 33 绑定 修饰符 -->
+    <!-- <div  id="yz-hello" >
+        <input type="text" v-model.lazy="body" />
+        <input type="text" v-model.number="body" /> 自动将用户的输入值转为数值类型
+        <input type="text" v-model.trim="body" /> 忽略开头尾部的空格 
+        <input type="text" v-model.lazy.trim.number="body" /> 添加多个修饰符 
+    </div> -->
+    <!-- .lazy修饰 作用 当输入框事情焦点的时，数据才会进行响应传递 -->  
+
+
+
+    <!-- 34 v-on 事件  -->
+    <!-- <button v-on:click="age++">Add 加一岁 </button> //直接算 
+    <button v-on:dblclick="add(10)">Add 加10岁 </button> // 带方法返回值运算  -->
+    <!-- <div id="yz-hello">   
+        <button v-on:click="plus" >++</button>
+        <p>{{counter}}</p>
+    </div> -->
+    <!-- a绑定方式 JavaScript表达式  month方法绑定 -->
+
+    <!-- 理念 -->
+    <!-- 在模板上生成HTML虚拟dom元素 -->
+
+    <!-- 35 v-on 事件   -->
+    <!-- 获取点击事件元素 -->
+    <!-- <div id="yz-hello">   
+        <button v-on:click="plus" >++</button> -->
+        <!-- <button v-on:click="plus" >++</button>
+        <button v-on:click="plus($event)" >++</button> -->
+        <!-- <p>{{counter}}</p>
+    </div> -->
+
+
+    <!-- 36 v-on 事件   -->
+    <!-- 点击事件实现功能  影藏显示dom元素-->
+    <!-- <div id="yz-hello">   
+        <button v-on:click="toggle" >点击影藏消失</button>
+        <p v-show = "shown">你好
+            <a href="">你好</a>
+            <a href="">你好</a>
+            <a href="">你好</a>
+        </p>
+    </div> -->
+
+
+
+    <!-- <style>
+        .tooltip {
+        background-color: cadetblue;
+        position: relative;
+        right: 65px;
+        bottom: 20px;
+        }
+    </style> -->
+    <!-- 37 组合训练   -->
+    <!-- 模态功能 鼠标滑过显示信息-->
+    <!-- <p style="padding-top: 50px;" id="yz-hello" >   
+        <span v-on:mouseover="show" v-on:mouseout="hide"  v-bind:title="showTitle"  >源栈欢迎您</span>
+        <span v-if="shown" class="tooltip">{{showTitle}}</span>
+    </p> -->
+
+    <!-- <span v-on:mouseover="show" v-on:mouseout="hide" v-bind:title="showTitle">源栈欢迎您</span>
+    <span v-if="shown" class="tooltip">{{showTitle}}</span> -->
+    <!-- tooltip 提示 -->
+    <!-- 相对定位控制提示位置 -->
+    <!-- 事件 mouseover 鼠标悬停 -->
+    <!-- 绑定提示data数据 -->
+    <!-- 一个元素 用多个v-on 事件绑定  鼠标离开事件  -->
+    <!-- 这里的if 是我比较疑惑的  -->
+
+    
+
+    <!-- 38 修饰符  prevent   -->
+        <!-- <div id="yz-hello">   
+        <button v-on:click="plus" >++</button>
+        <button v-on:click="plus" >++</button>
+        <a href="http://17bang.ren" v-on:click.prevent="plus($event)" >++</a>
+        <p>{{counter}}</p>
+        </div> -->
+            
+    <!-- 参考资料 -->
+    <!-- <a v-on:click.prevent="click" href="https://17bang.ren/Code/242">学习站点</a>-->
+     <!-- <input type="text" v-model.lazy.trim.number="body" /> 添加多个修饰符  -->
+
+
+
+     
+    <!-- 39 修饰符  事件   -->
+    <!-- 冒泡起始 拦截 .stop -->
+    <!-- 冒泡起始元素a  前方元素b拦截上升路径  self -->
+    <!-- <style>
+        div {
+            border: 1px solid;
+        }
+    </style> -->
+    <!-- <div id="yz-hello">    -->
+        <!-- <div v-on:click.self="outer" style="padding:40px;" id="yz-hello">
+            <div v-on:click="inner">inner</div>
+        </div> -->
+        <!-- <div v-on:click="outer" style="padding:40px;" id="yz-hello">
+            <div v-on:click.stop="inner">inner</div>
+        </div>
+
+    </div> -->
+    <!-- outer 是方法 -->
+
+
+
+    <!-- 40 vue  dom元素操作 -->
+    <!-- 需求 消除浏览器默认提示 -->
+    <!-- 渲染完成后，执行docment元素  -->
+        <!-- <style>
+        .tooltip {
+        background-color: cadetblue;
+        position: relative;
+        right: 65px;
+        bottom: 20px;
+        }
+    </style> -->
+
+    <!-- <p style="padding-top: 50px;" id="yz-hello" >   
+        <span id="slagon" v-on:mouseover="show" v-on:mouseout="hide"  v-bind:title="showTitle"  >源栈欢迎您</span>
+        id 属于docment 方式操作元素 获取元素 
+        <span ref="slagon" v-on:mouseover="show" v-on:mouseout="hide"  v-bind:title="showTitle"  >源栈欢迎您</span>
+        $refs Vue还提供了一个快捷的定位某DOM元素的方式：
+        <span v-if="shown" class="tooltip">{{showTitle}}</span>
+    </p> -->
+    
+    <script>
+        // 解释 
+        // 先跑模板渲染函数出一遍虚拟dom，在补丁阶段触发在渲染函数跑一遍，两边dom对比
+        // 渲染第1遍的时候 docment，没有执行
+
+        // a=1 模板 虚拟dom1 / a=2 补丁函数 虚拟dom2 
+        // domcment 执行时机
+        // 在补丁函数虚拟产生 dom2 ，数据没有渲染前 a=1 dom不执行，所以渲染过程完成前 a=2 ，dom也执行过了，所以提示也就出来了，
+        // 因此
+        // 执行在补丁函数虚拟产生 dom2 ，数据渲染完成后， a=2 ，在执行docment为空 
+    </script>
+                
+
+    <!-- 41 vue  dom元素操作 -->
+    <!-- 需求 文本闪烁变换颜色 -->
+    <!-- 渲染完成后，执行docment元素  -->
+    <!-- <div id="yz-hello">
+        <div id="bell"  v-bind:style="{color:color}">bell</div>
+    </div> -->
+    <script>
+    // load 加载 /unload 离开等于页面跳转触发 
+    // 码农场景
+    //需要把代码写在html文件中，但是要等到dom元素加载完成，在执行事件绑定代码 
+
+    // 立即执行 load是在div元素用不了的，要用挂载钩子函数 
+    </script>
+
+
+
+    <!-- 42 vue  form表单 -->
+    <!-- 表单内容验证  -->
+    <!-- 表单内容阻止提交 错误信息和验证是两码事 -->
+    <!-- <form  v-on:submit="checkAll" novalidate="true" id="yz-hello">
+        <input v-on:change="require" v-model="sname" >
+        <span v-if="error">{{error}}</span>
+        <button type="submit">提交</button>
+    </form> -->
+
+    <script>
+        // novalidate html5 自带验证 进行关闭 
+        // change 改变事件 输入框内容改变时候 
+        // require 要求方法 验证输入内容 
+        // model bind 都能绑定 ，medel是双向绑定 
+        // model js中的vue实例中 的data与其渲染的dom元素上的内容保持一致，两者无论谁被改变，另一方也会相应的更新为相同的数据
+        // bind 元素的属性中绑定 data中属性
+        // v-if  A：直接绑定vue实例属性 设定真假 ，B：行内表达式 i 直接进行判断
+
+        // submint 提交 checkAll 
+    </script>
+
+
+    <!-- 43 vue  form表单 -->
+    <!-- 表单多个内容验证  -->
+    <!-- <form  v-on:submit="checkAll" novalidate="true" id="yz-hello">
+        <p>
+            <label for="">用户名</label>
+            <input v-on:blur="require" v-model="sname" >
+            <span v-if="error.sname">* 用户名需要填写</span>
+        </p>
+
+        <p>
+            <label for="">密码</label>
+            <input v-on:blur="require" v-model="password" >
+            <span v-if="error.password">* 密码需要填写</span>
+        </p>
+
+        <p>
+            <label for="">确认密码</label>
+            <input v-on:blur="require" v-model="confirmPassword" >
+            <span v-if="error.confirmPassword">* 确认密码要填写</span>
+        </p>
+
+        <p>
+            <label for="">确认密码</label>
+            <input v-on:blur="sameWith" v-model="confirmPassword" >
+            <span v-if="error.confirmPassword">* 确认密码要一致</span>
+        </p>
+
+
+        <button type="submit">提交</button>
+    </form> -->
+
+    <!-- 注意 这里边有两个 确认密码的运算 ，用的时候记得区分禁用掉一个  -->
+    <!-- blur 失焦判断 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 使用展示  -->
+    <!-- <h1 v id="yz-hello">{{greet}}</h1> -->
+    <!-- vue 中 html 成为模板 -->
+
+    <!-- <script>
+        var vm = new Vue({
+    el: "#yz-hello", 
+    data: {
+        greet: "Hello, 源栈!！"  
+    }
+    })
+    </script> -->
+
+    <script>
+     //#代表id 元素选择 
+     //确定greet的内容
+    // vm 实例对象，也叫视图对象 
+    // vue的构造函数，中 el 和 data 属性， this上下文， 自动绑定新对象 指向h1，
+    // 也称之为渲染过程 
+
+    // 为什么不用 直接写标签里面？
+    // 因为前后端数据分离理念 ，展示内容从后端拿取 
+    </script>
+
+
+
+    <!-- 顺序 -->
+    <!-- 先模板后渲染 -->
+
+</body>
+<script   src="/vuejs-playlist/v.js"> </script>
+</html>
