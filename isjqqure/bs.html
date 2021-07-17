@@ -6,20 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jquery boostry训练</title>
 
-
+    <!--boostrap的css文件  -->
     <link rel="stylesheet" href="/bootstrap-4.3.1/dist/css/bootstrap.css">
 
+    <!-- 一个jquery文件  -->
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 
-    <!-- <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <!-- jquery文件 jquery验证插件  -->
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
     <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
-    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script> -->
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
 
-
+    <!-- boostrap js文件引入 大家伙 -->
     <script src="/bootstrap-4.3.1/dist/js/bootstrap.bundle.js"></script>
+    
+  <!-- 模拟后台服务器文件引入 -->
     <script src="http://mockjs.com/dist/mock.js"></script>
 
-
+  <!-- 严重失误 我以为引入文件有问题 结果对着视频一看 原来的bootstrap的文件 给删掉了 ，.... -->
 </head>
 <body>
 
@@ -67,7 +71,7 @@
          <!-- 需求
         点击空白处，不允许退出模态框
         -->
-    <!-- <div class="modal fade" id="myModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -94,10 +98,10 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
       
       <!-- 按钮设置模态框触发 -->
-      <!-- <button type="button" data-toggle="modal" data-target="#myModal" data-backdrop="false"  >Launch modal</button> -->
+      <button type="button" data-toggle="modal" data-target="#myModal" data-backdrop="false"  >模态框</button>
 
 
 
@@ -180,7 +184,7 @@
           </div>
         </div>
       </div>
-      <button type="button" >Launch modal</button> -->
+      <button type="button" >模态框2</button> -->
 
       
       <!-- js设置  
@@ -318,11 +322,10 @@
     <!-- 点击按钮，通过事件，请求下拉内容 -->
     <!-- 下拉框 -->
    
-    <!-- <button id="but">消失</button>
-    <div class="d-flex">
+    <!-- <div class="d-flex">
         <div class="dropdown mr-1">
             <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-expanded="false" data-offset="10,20">
-                Offset
+                1
             </button>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
@@ -333,7 +336,7 @@
         </div>
 
         <div zyf-2-level class="btn-group">
-            <button type="button" class="btn btn-secondary">Reference</button>
+            <button type="button" class="btn btn-secondary">2</button>
             <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-expanded="false" data-reference="parent">
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
@@ -402,7 +405,37 @@
     </script>
 
 
+    <!--原版 完全没动过  -->
+    <!-- <div class="d-flex">
+      <div class="dropdown mr-1">
+        <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-expanded="false" data-offset="10,20">
+          Offset
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary">Reference</button>
+        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-expanded="false" data-reference="parent">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+      </div>
+    </div> -->
 
+    <!-- 调用方法 -->
+    <script>
+      // $('.dropdown-toggle').dropdown()
+    </script>
 
 
 
@@ -418,7 +451,7 @@
     <!-- 工具提示框组件 -->
     <!-- Tooltips are opt-in for performance reasons, so you must initialize them yourself. ：出于性能原因，工具提示是可选择的，因此您必须自己初始化它们。 飞哥：这个组件js状态需要手动打开 -->
     <!-- 事件在这个组件很少 -->
-    <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+    <!-- <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
         Tooltip on top
     </button>
     <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
@@ -429,11 +462,11 @@
     </button>
     <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
         Tooltip on left
-    </button>
-    <script>
+    </button> -->
+    <!-- <script>
         //    $('#example').tooltip(options)
            $('[data-toggle="tooltip"]').tooltip()
-    </script>
+    </script> -->
  
 </body>
 </html>

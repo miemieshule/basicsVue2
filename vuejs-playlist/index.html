@@ -16,6 +16,11 @@
 </head>
 <body>
 
+        <!-- 最大的问题就是后端数据发过来什么样子结构不知道，导致的，
+    后面的题目全部重新问一下后端数据应该是什么样子的 -->
+
+
+
     <!-- a1学习 传输值 返回值 -->
     <!-- <div id="vue-app">
         <h1>{{greet(' afernoon') }}</h1>
@@ -286,6 +291,20 @@
     <!-- 无法使用v-if 两个实例范围冲突了  因为我上面那个 app 的id块包含了 下面的那个 app2 的id块  -->
 
 
+    <!-- b10-1  条件渲染  在div上控制显示哪个元素  -->
+    <!-- 条件控制元素 是否显示 -->
+    <!-- 重点 ：要渲染完成才能控制显示什么元素 不是放在最上面的div进行控制  -->
+    <!-- <div id="yz-hello">
+        <div >
+            <h1 >源栈欢迎你 要努力学习</h1>    
+            <a v-show="isAuthor1">修改1</a>
+            <a v-show="isAuthor2">修改2</a>
+            <a v-show="isAuthor3">修改3</a>
+            <div v-if  = "judgeRole()"> </div>
+        </div>
+    </div> -->
+
+
     <!-- b11 条件渲染（v-if-else）和 v-show 的区别 -->
     <!-- <div id="yz-hello">
         <h1 >源栈欢迎你 要努力学习 </h1>    
@@ -316,6 +335,7 @@
 
         </ul>
     </div> -->
+    <!-- 特点 获取多个数据 多个花括号组合使用 -->
 
 
     <!-- b14 数组中 对象 循环输出 -->
@@ -500,11 +520,11 @@
     <!--  b31 表单checkbox 复选框 绑定   -->
     <!--循环绑定复选框 -->
     <!-- v-model="enrolleds" v-model="s.enrolled"   -->
-    <div  id="yz-hello" >
+    <!-- <div  id="yz-hello" >
         <label v-for="s of students">
             <input  type="checkbox" :value="s.id" v-model="enrolleds"    />{{s.name}}
         </label>
-    </div>
+    </div> -->
 
 
 
@@ -664,7 +684,7 @@
                 
 
     <!-- 41 vue  dom元素操作 -->
-    <!-- 需求 文本闪烁变换颜色 -->
+    <!-- 需求  铃铛 文本闪烁变换颜色 -->
     <!-- 渲染完成后，执行docment元素  -->
     <!-- <div id="yz-hello">
         <div id="bell"  v-bind:style="{color:color}">bell</div>

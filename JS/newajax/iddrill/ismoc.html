@@ -7,7 +7,7 @@
     <script src="http://mockjs.com/dist/mock.js"></script>
 
 
-    <title>Document</title>
+    <title>mock 训练 </title>
 </head>
 <body>
     
@@ -26,7 +26,15 @@
     <!-- 卧槽 这个直接模拟了一个后台 ？ -->
 
 
+    <!-- 不同的数据写法 -->
+    <!-- 只模拟一次名字  不对数据改变 属性名改变   --> <!--   "snam": '@ctitle()',   -->
+    <!-- 只模拟一次名字 数据改变  //x重复2-5次  -->   <!--  "sname|2-5":'x', --> 
+    <!-- 模拟一次名字 每次随机数据   -->       <!--     name:'@cname()', -->
+    <!-- 设置模拟名字测试 每次名字数据随机 -->     <!-- 'name|10':['@cname()'], -->
 
+
+
+   
 
 
 
@@ -34,21 +42,51 @@
 
 
     <!-- 随机设置json值  竖线范围法 -->
-    <!-- <script>
+    <script>
         Mock.mock("/Student/23", {
         //x重复2-5次
-        "sname|2-5":'x',
+        "sname|2-3":'码',
+       
+        "paragraph":'@cparagraph()',
+        
+        name:'@cname()',
+
+        'address|5':["@city(true)"],
+        'name|10':['@cname()'],
+
+        // 'cparagraph' : '@cparagraph(5, 14)',
+        'cparagraph|5' : ['@cparagraph(5, 14)'],
 
         //age：10-80间随机生成，100代表整数类型而已，可以是任意整数
-        "age|10-80":100,
+        "number|10": ['@number()'],
 
         //1-100的小数，小数位数从1到10
         'number|1-100.1-10': 1,
+
+
+        // 数组 里面随机数 
+        "s":'@range(3, 7)',
         })
 
-    </script> -->
-
+    </script> 
     
+    <script>
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "/Student/23"); 
+        xhttp.send({
+            age:24
+        }); 
+        
+        xhttp.onreadystatechange = function () {
+            if (this.readyState==4 && this.status ===200) {
+                var student = JSON.parse(this.response) 
+                console.log(student);
+                console.log(this.responseText);
+            }
+        };
+
+        
+        </script> 
 
 
 
@@ -85,7 +123,7 @@
 
         <!-- 随机设置json值 竖线法 结合  @符号法 -->
         <!-- 随机生成5个城市名称 -->
-        <script>
+        <!-- <script>
 
             Mock.mock("/Student/23", {
             
@@ -96,7 +134,7 @@
 
             })
     
-        </script>
+        </script> -->
 
 
 
@@ -165,7 +203,7 @@
 
 
 
-         <script>
+         <!-- <script>
         var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "/Student/23"); 
         xhttp.send({
@@ -180,7 +218,7 @@
         };
 
         
-        </script> 
+        </script>  -->
 
 </body>
 

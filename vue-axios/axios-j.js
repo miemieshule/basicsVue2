@@ -172,26 +172,26 @@
 // a4 文件上传请求 数据发送请求 
 // 目标 FormData 类 new出 对象 ，把所有form表单数据一次性的“form化” 
 // 用异步传输axios 传输数据data中， 使用FormData变量 
-// const vm =  new Vue({
-//     el:'#yz-hello',
-//     methods: {
-//         upload:function(){
-//             var icon = this.$refs.icon,
-//             formData = new window.FormData();    //注意window.不能省略
-//             formData.append('icon', icon.files[0])
+const vm =  new Vue({
+    el:'#yz-hello',
+    methods: {
+        upload:function(){
+            var icon = this.$refs.icon,
+            formData = new window.FormData();    //注意window.不能省略
+            formData.append('icon', icon.files[0])
 
-//             axios.request({    
-//                 url: "/Student.html",
-//                 method:"post",
-//                 data:formData,
-//                 headers: {
-//                     'Content-Type': 'application/x-www-form-urlencoded'
-//                 },
-//             })
+            axios.request({    
+                url: "/Student.html",
+                method:"post",
+                data:formData,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+            })
 
-//         }
-//     },
-// })
+        }
+    },
+})
 
 // upload 上传 
 // parentElement 父节点元素 
@@ -268,7 +268,7 @@
 //                 headers: {
 //                     'Content-Type': 'application/x-www-form-urlencoded'
 //                 },
-//                 onUploadProgress: function (progressEvent) {//@想一想@有没有坑？
+//                 onUploadProgress: function (progressEvent) {
 //                     isthis.inProgress = true ;
 
 //                     isthis.percentage = progressEvent.loaded / progressEvent.total;
@@ -857,6 +857,176 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 作业
+// 需求 
+// 根据Ajax动态加载导航栏下的“新消息”
+// 思路 
+// 请求 请求对象 请求值 服务器数据 dom元素 赋值请求内容 
+
+
+
+
+
+
+
+
+
+// 参考资料 
+// 服务器准备数据 
+// Mock.mock("/Student/23", {
+//    //标题，内容较少
+//    "title": '@ctitle()'
+//    })
+
+//需求
+// 请求到服务器的Board页面文本，赋值给现board页面的main元素 
+//先获取这样页面的元素，然后在拿请求页面的元素 请求的时候 从右往左赋值 
+
+// isnews()
+// function isnews(){
+//    var xhttp = new XMLHttpRequest();
+//    xhttp.open("GET","/Student/23"); 
+//   xhttp.send();
+//   //onload 事件会在页面或图像加载完成后立即发生。
+
+// 原生ajax的拿取数据使用 
+//   xhttp.onload = function(){
+//        console.log(xhttp.readyState);
+//        var student = JSON.parse(this.response) 
+//        console.log(student);
+
+//        document.getElementById('isnews').innerHTML = student.title; 
+//   }
+
+// jquery的ajax写法 
+//     //     // 服务器返回前端信息 都在data中
+//     //     success:function(data){
+
+//     //         var $data = $(data); 
+
+//     //         $data.find('h1').click(function(){   //绑定事件 
+//     //             $(this).hide();
+//     //         })
+
+//     //         $('div#ajax').html($data)
+            
+//     //     },
+
+// axios的ajax写法 
+// 在axios调用函数 操作dom元素 
+// onUploadProgress 上传汇总 请求上传的过程，而不是请求结束拿取数据 
+// onUploadProgress: function (progressEvent) {//@想一想@有没有坑？  
+//     isthis.inProgress = true ;
+//     isthis.percentage = progressEvent.loaded / progressEvent.total;
+//     console.log(isthis.percentage);
+// }
+
+// }
+// 定时器 
+// setInterval(isnews, 3000)
+
+
+// 定时请求 
+//     // setInterval(
+    //     function() {
+    //         console.log("不要作死");
+    //         console.log(Date.parse (new Date()) -k);
+    //         // console.log(Date.parse (new Date()) -j);
+    //     },
+    //     3000
+    // )
+
+
+
+
+    
+
+
+// 总结
+// 请求是根据一个元素出现，并且绑定这个methods中的一个请求方法 ，最后请求都是为了改变dom元素的，基本上应该是内容 
+
+// 请求最新消息 
+
+// Mock.mock("/Student/23", {
+//     "title": '@ctitle()' 
+//     })
+
+
+   
+// var newNewsfun  =  new Vue({   // news 消息 
+//     el:'#new-News',
+//     data:{
+//         newNews : '1'  ,
+//     },
+
+//         created:function(){
+
+//             axios.request({
+//                 url: "/Student/23",
+//                 method:"get",
+//                 // defaults:retry = 3,
+//                 // defaults:retryDelay = 2000 ,
+
+//             }).then((response) => {  
+//                      this.newNews = response.data.title ;
+//                     console.log(response.data.title);  
+//             })
+//         },
+
+// })
+
+// 第一个问题 
+// 不知道怎么拿到请求的数据，参考原生ajax，和jquery的写法 
+// 特点
+// 都有匿名函数调用 
+// 请求完成立刻执行事件，获取元素 
+// 请求成功，获取data，拿到元素，进行操作 
+// 应该也是请求成功，在拿取数据 ，
+
+// 第二个问题，
+// 怎么给元素用？
+// 原生ajax：函数名执行，html文件加载完成，请求js文件，js文件中，ajax的函数异步执行
+// jquery；拿到元素id，绑定点击事件，事件函数中调用，ajax请求函数，
+// vue，应该属于设定data数据，渲染时候拿到data，然后接着往下执行，发现有关于data数据的方法，就发起请求。
+
+// 第三个问题
+// 在axios函数中rqquest参数,中，写函数是请求中过程做什么
+
+// 第四个问题
+// axios 成功后 一直请求? 方法应该只执行一次啊，再次执行就该是定时器了，怎么一直请求呢？
+// 解决 是vue的生命周期的阶段申请请求  也叫钩子函数，也或者事件上 
+
+// 第五个问题
+// 怎么控制调用次数啊？
+
+// 需求 
+// 文章列表数据获取 
+// 这个先不管了，先做文章列表的数据 两个选择，data中做数据集合，一个mack中设置次数数据集合 
 
 
 

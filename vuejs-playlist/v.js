@@ -68,7 +68,6 @@
 
 
 
-
 // a3学习 点击事件 
 // new Vue({
 //     el:'#vue-app',
@@ -213,7 +212,7 @@
     // new Vue({
     //     el: '#vue-app',
     //     data: {
-    //         a1boolean: false,
+    //         a1boolean: false,enrolleds
     //         b1boolean: false
     //     },
     //     methods: {
@@ -340,6 +339,33 @@
     //         isAdmin:true,
     //     }
     // })
+
+
+    // <!-- b10-1  条件渲染  在div上控制显示哪个元素  -->
+    // var vm = new Vue({
+    //     el: "#yz-hello",  
+    //     data: {
+    //         isAuthor1: true,
+    //         isAuthor2: true,
+    //         isAuthor3: true,
+
+    //         users:[
+    //             {
+    //                 user:{ name : '杨嘉栋' , role:'common'}
+    //             }
+    //         ]
+    //     },
+    //     methods: {
+    //         judgeRole:function () {  //判断角色 judge：判决 
+            
+    //                this.isAuthor1 = true
+    //                this.isAuthor2 = false
+    //                this.isAuthor3 = true
+
+    //         },
+    //     }
+    // })
+
     
         
     // b11 条件渲染（v-if-else） 和 v-show 区别 
@@ -662,52 +688,56 @@
 
     // b31  双向绑定 表单 
     //  radio 循环绑定 
-    var vm = new Vue({
-        el: "#yz-hello",
+    // var vm = new Vue({
+    //     el: "#yz-hello",
 
-        data: {  
-            selectIDs:[],
-            students: [
-                { id: 8, name: '夏康平', enrolled: true , },
-                { id: 12, name: '陈国栋', enrolled: false , },
-                { id: 6, name: '韩佳宝', enrolled: false ,  }
-            ],
-        },
+    //     data: {  
+    //         selectIDs:[],
+    //         students: [
+    //             { id: 8, name: '夏康平', enrolled: true , },
+    //             { id: 12, name: '陈国栋', enrolled: false , },
+    //             { id: 6, name: '韩佳宝', enrolled: false ,  }
+    //         ],
+    //     },
 
-        computed: {
+    //     computed: {
 
 
-            enrolleds:{
-                get : function(){
-                    return this.students.filter(function (s) {
-                        return s.enrolled;
-                    }).map(function (s) {
-                        return s.id;
-                    });
-                },
+    //         enrolleds:{
+    //             get : function(){
+    //                 return this.students.filter(function (s) {
+    //                     return s.enrolled;
+    //                 }).map(function (s) {
+    //                     return s.id;
+    //                 });
+    //             },
 
-                set:function(value){
+    //             set:function(value){
                 
-                    return (function(){
-                        for (let i = 0; i < value.length; i++) {
-                            this.students.filter(function (s) {
-                                return  s.id === value[i]   ;
-                            }).map(function (s) {
-                                return s.enrolled = true;
-                            });
-                        }
-                    }.bind(this)())
+    //                 return (function(){
+    //                     for (let i = 0; i < value.length; i++) {
+    //                         this.students.filter(function (s) {
+    //                             return  s.id === value[i]   ;
+    //                         }).map(function (s) {
+    //                             return s.enrolled = true;
+    //                         });
+    //                     }
+    //                 }.bind(this)())
     
         
-                }
+    //             }
 
 
-            }
-        }
-    })
+    //         }
+    //     }
+    // })
 
-    // 想了两小时 做不出来 只能增加不能减 
+    // 拿到已经点击的值，然后从数组过滤出来，然后在改变enrolled值 
+    // 需求
+    // 能按照顺序增加 id值  可以 for循环位置 123 和点击123 位置，相同就能  // // 不按照顺序来增加 id值
+    // value的id 必须和 studens的id 完全一样 ，返回完全相同的对象，在进行计算   // 筛选出完全相同的，然后改变布尔值 
 
+  
 
 
     // b32  双向绑定  表单
@@ -885,6 +915,7 @@
 // color 
 // methods vue实例方法 
 // mounted 挂栽钩子函数 
+// InviteName 
 
 // vue是操作数据得到规则，跟js的规则不一样了，你得多学习看看新的规则是什么
 
