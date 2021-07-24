@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-show</title>
+  <script src="/vue-js/vue.js"></script>
+</head>
+<body>
+
+  <script>
+    // 特点 是否渲染元素 
+    //  v-if 为渲染 一个if判断后决定是否加载节点 
+    // v-show 显示 一个不论结果直接加载然后样式进行调整不显示
+    // 频繁切换 show ，不频繁切换 v-if 
+
+  </script>
+      <!-- b11 条件渲染（v-if-else）和 v-show 的区别 -->
+    <div id="yz-hello">
+        <h1 >源栈欢迎你 要努力学习 </h1>    
+        <a v-if="isAuthor">1修改</a>
+        <a v-show="isshow">2修改</a>
+    </div>
+
+
+  <script>
+        // b11 条件渲染（v-if-else） 和 v-show 区别 
+    var vm = new Vue({
+        el: "#yz-hello",  
+        data: {
+            isAuthor: true,
+            isshow:false,
+        }
+    })
+  </script>
+
+</body>
+</html>

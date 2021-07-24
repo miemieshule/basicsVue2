@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> vue  05 -组合功能训练事件监听 </title>
+
+      <!-- 样式文件 -->
+      <link rel="stylesheet" href="/vuejs-playlist/style.css">
+      <!-- vue2 文件引入 -->
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  
+      <!-- axiios文件引入 类似ajax -->
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+
+      <!-- <style>
+        .tooltip {
+        background-color: cadetblue;
+        position: relative;
+        right: 65px;
+        bottom: 20px;
+        }
+    </style> -->
+    <!-- 37 组合训练   -->
+    <!-- 模态功能 鼠标滑过显示信息-->
+    <!-- <p style="padding-top: 50px;" id="yz-hello" >   
+        <span v-on:mouseover="show" v-on:mouseout="hide"  v-bind:title="showTitle"  >源栈欢迎您</span>
+        <span v-if="shown" class="tooltip">{{showTitle}}</span>
+    </p> -->
+
+    <!-- <span v-on:mouseover="show" v-on:mouseout="hide" v-bind:title="showTitle">源栈欢迎您</span>
+    <span v-if="shown" class="tooltip">{{showTitle}}</span> -->
+    <!-- tooltip 提示 -->
+    <!-- 相对定位控制提示位置 -->
+    <!-- 事件 mouseover 鼠标悬停 -->
+    <!-- 绑定提示data数据 -->
+    <!-- 一个元素 用多个v-on 事件绑定  鼠标离开事件  -->
+    <!-- 这里的if 是我比较疑惑的  -->
+    <script>
+          // <!-- 37 组合训练   -->
+    // <!-- 模态功能 鼠标滑过显示信息-->
+    //     var vm = new Vue({
+    //     el: "#yz-hello",
+    //         data: {  
+    //             shown:false,
+    //             showTitle:'tooltip',
+    //     },
+    //     methods: {
+    //         show: function () {
+    //             this.shown = true ;
+    //         },
+    //         hide: function () {
+    //             this.shown = false ;
+    //         }
+    //     }
+    // })
+
+    </script>
+
+</body>
+</html>

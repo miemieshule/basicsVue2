@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue 组件：module 基础学习 </title>
+
+    <!-- vue2 文件引入 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <!--  // a1 基础demo1 认识组件   -->
+    <!-- <div id="yz-hello">
+        <h1 >源栈欢迎你 要努力学习 module </h1> 
+        <p>{{greet}}</p>   
+      
+        <todo-item>1</todo-item>
+        </div> -->
+
+    <!-- <script>
+            Vue.component('todo-item', {//指定组件名称
+        template: '<li>这是个待办项</li>'//指定template，模板
+    })
+    //  使用方式 组件名称当做标签用
+    //组件名称必须要羊肉串命名办法 羊肉串命名使用 
+    </script> -->
+
+
+
+    <!--  // a2 基础demo2 挂载关系   -->
+    <!-- <div id="yz-hello">
+        <h1 >源栈欢迎你 要努力学习 module </h1> 
+        <p>{{greet}}</p>
+        <yz-table></yz-table>
+        <todo-todo></todo-todo>
+    </div> -->
+
+    <script>
+    //         Vue.component('yz-table', {
+    //     template: '<li>这是个表格1</li>'
+    // })
+
+    // Vue.component('todo-todo', {
+    //     template: '<li>这是个待办项</li>'
+    // })
+
+    // var vm = new Vue({
+    //     el: "#yz-hello",
+    //     data: {
+    //         greet:"源栈连接测试",
+    //     },
+    // })
+
+
+    // 根节点id yz hello ，子节点 'todo-item' ,子节点挂载根节点上 ，
+    // 怎么挂呢？ 放在yz-hello控制的视图对象里面 
+    </script>
+
+
+
+    <!--  // a3 基础demo3  组件执行顺序关系   -->
+    <!-- <div id="yz-hello">
+        <h1 >源栈欢迎你 要努力学习 module </h1> 
+        <p>{{greet}}</p>
+        <yz-table></yz-table>
+        <todo-todo></todo-todo>
+    </div> -->
+
+    <script>
+    //         Vue.component('yz-table', {
+    //     template: '<li>这是个表格1</li>'
+    // })
+
+    // var vm = new Vue({
+    //     el: "#yz-hello",
+    //     data: {
+    //         greet:"源栈连接测试",
+    //     },
+    // })
+
+    // Vue.component('todo-todo', {
+    //     template: '<li>这是个待办项</li>'
+    // })
+
+
+    // js执行顺序
+    // 1.执行 'yz-table' 组件生成 ，
+    // 2.执行实例vm代码   实例拿到视图对象id，对视图对象渲染，渲染过程 ，发现html结构调用组件， 再回到组件 'yz-table' 进行调用 
+    // 3.由于todo-todo组件 还没有生成，所以vm 渲染时候 发现有第二个组件，但是 调用不到，就报错，是否正确放置组件 
+
+    // 其他 
+    // 执行错误会打印错误，但是不影响接着执行todo-todo组件 生成 
+    </script>
+
+
+    <!--  / a3 基础demo3 // 全局组件    -->
+    <!-- <div id="yz-hello">
+        <h1 >源栈欢迎你 要努力学习 module1 </h1> 
+        <p>{{greet}}</p>
+        <yz-table></yz-table>
+        <todo-todo></todo-todo>
+    </div>
+    <div id="yz-hello2">
+        <h1 >源栈欢迎你 要努力学习 module2 </h1> 
+        <p>{{greet}}</p>
+        <yz-table></yz-table>
+        <todo-todo></todo-todo>
+    </div> -->
+
+
+    <!--  a4 基础demo4  局部组件    -->
+    <!-- <div id="yz-hello">
+        <h1 >源栈欢迎你 要努力学习 module1 </h1> 
+        <forget-parssword></forget-parssword>
+    </div> -->
+
+
+    <!--  a5 基础demo5 局部用全局     -->
+    <!-- <div id="yz-hello">
+        <h1 >源栈欢迎你 要努力学习 module1 </h1> 
+        <forget-parssword></forget-parssword>
+    </div> -->
+
+
+
+    <!--    // a6 基础demo6    // 全局组件用局部组件     -->
+    <!-- <div id="yz-hello">
+        <h1 >源栈欢迎你 要努力学习 module1 </h1> 
+        <yz-table></yz-table>
+    </div> -->
+
+    <!--    // a7 基础demo7    // 组件使用data数据    -->
+    <!-- <div id="yz-hello">
+        <h1 >源栈欢迎你 要努力学习 module1 </h1> 
+        <yz-table></yz-table>
+    </div> -->
+
+
+    <!--     //a8 基础demo8 props：传值
+    // 组件在不同的地方使用时，有不同的呈现内容   -->
+    <!-- <div id="yz-hello">
+        <h1 >源栈欢迎你 要努力学习 module1 </h1> 
+        <yz-table  todo="忘记密码 使用props" url="https://17bang.ren/Code/248"> </yz-table>
+    </div> -->
+
+
+    <!--//a9 基础demo9 props：传值
+    //第二种 使用根实例 data值   -->
+    <!-- <div id="yz-hello">
+        <h1 >源栈欢迎你 要努力学习 module1 </h1> 
+        <yz-table  v-bind:todo="pwd" url="https://17bang.ren/Code/248"> </yz-table>
+    </div> -->
+
+
+    <!--//a9  基础demo9 props：传值
+    //第二种分支1 总结 props的数据源   -->
+    <!-- <div id="yz-hello">
+        <h1 >源栈欢迎你 要努力学习 module1 </h1> 
+        <yz-enroll :username="username"></yz-enroll>
+    </div> -->
+
+
+
+
+    <!-- //a10 基础demo10 props：传值
+    //    // 第三种 
+    // html元素设定值 往回传，传递对象是模板化template中，标签   -->
+    <!-- <div id="yz-hello">
+        <h1>源栈欢迎你 要努力学习 module1 </h1>
+        <yz-table v-bind:todo="pwd" style="color: red;" url="https://17ban g.ren/Code/248"> </yz-table>
+    </div> -->
+
+
+    <!-- //a11 // 组件上添加事件-->
+    <!-- <div id="yz-hello">
+        <h1>源栈欢迎你 要努力学习 module1 </h1>
+        <yz-table v-bind:todo="pwd" > </yz-table>
+    </div> -->
+
+
+    <!-- //a12 // 子组件向父组件传值-->
+    <!-- 使用事件 点击事件 -->
+    <!-- <div id="yz-hello">
+        <h1>源栈欢迎你 要努力学习 module1 </h1>
+        <yz-table v-on:welcome="sayHello($event)" todo="todo值" ></yz-table>
+    </div> -->
+
+
+    <!-- a12-1 -->
+    <!-- props使用 $emit -->
+    <!-- <div id="yz-hello">
+        <h1>源栈欢迎你 要努力学习 module1 </h1>
+        <yz-enroll v-model="username"></yz-enroll>
+    </div> -->
+    <!-- v-model 等于如下这种写法 -->
+    <!-- <input @input="username=$event.target.value" :value="username"></input> -->
+
+
+    <!-- //a13 -->
+    <!-- form表单绑定 v-model双向绑定  -->
+    <!-- <div id="yz-hello">
+        <h1>源栈欢迎你 要努力学习 module1 </h1>
+        <yz-enroll ></yz-enroll>
+    </div> -->
+
+    <!-- a14 -->
+    <!-- // 获取父组件的data值 并且不用v-model 实现双向绑定  -->
+    <!-- <div id="yz-hello">
+    <h1 >源栈欢迎你 要努力学习 module1 </h1> 
+    <input @input="username=$event.target.value" :value="username"></input>
+    </div> -->
+    <!-- 监听 input输入事件 根元素的data值 username被赋值，输入事件触发后产生的event元素，元素执行，输入事件的值 、 所以是输入值等于data值 实现绑定  -->
+    <!-- <yz-enroll :value ="username"></yz-enroll> -->
+
+
+
+    <!-- a15 自定义model -->
+    <div id="yz-hello">
+        <h1>源栈欢迎你 要努力学习 module1 </h1>
+        <yz-enroll v-model="username"></yz-enroll>
+        
+    </div>
+    <!-- model 本身就指向value值  -->
+
+
+
+
+
+
+
+
+</body>
+
+
+<script src="/vue-module-basics/module.js"> </script>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-if </title>
+  <script src="/vue-js/vue.js"></script>
+</head>
+<body>
+
+
+   <!-- b10 条件渲染（v-if-else） -->
+    <div id="yz-hello1">
+      <!-- 行内布尔值控制 -->
+        <h1 v-if="false" >源栈欢迎你 要努力学习 </h1>    
+
+        <!-- isAuthor data区变量布尔值控制  -->
+        <div v-if="isAuthor" >源栈欢迎你 要努力学习 
+          <ul>
+            <li>1</li>
+          </ul>
+        </div>    
+
+        <!-- else效果实现 -->
+        <a v-if="isAuthor">修改</a>
+        <a v-else-if="isAdmin">删除</a>
+        <span v-else>你无权修改</span>
+    </div>
+
+    <script>
+
+    // b10 条件渲染（v-if-else） 
+    var vm = new Vue({
+        el: "#yz-hello1",  
+        data: {
+            isAuthor: true,
+            isAdmin:true,
+        }
+    })
+
+    </script>
+
+
+
+
+
+    <!-- 使用计算属性代替 v-if指令  -->
+    <!-- 分数计算 -->
+    <div id="yz-hello2">
+     <h1 >{{h1}}</h1>
+     <p>{{score}}</p>    
+    </div>
+
+    <script>      
+      var vm = new Vue({
+          el: "#yz-hello2",  
+          data: {
+              score: '99'
+          },
+          computed: {
+            h1:function() {
+                var ifouput = '' //条件输出 
+                 if(this.score >=90){
+                  ifouput = '优秀'
+                 }else if (this.score >=80){
+                  ifouput = '良'
+                 }else{
+                  ifouput = '差'
+                 }
+                 return  ifouput  ;
+                }
+
+          },
+            
+      })
+      </script>
+
+
+
+      
+
+
+
+    <!-- b10-1  条件渲染  在div上控制显示哪个元素  -->
+    <!-- 条件控制元素 是否显示 -->
+    <!-- 重点 ：要渲染完成才能控制显示什么元素 不是放在最上面的div进行控制  -->
+    <!-- <div id="yz-hello">
+        <div >
+            <h1 >源栈欢迎你 要努力学习</h1>    
+            <a v-show="isAuthor1">修改1</a>
+            <a v-show="isAuthor2">修改2</a>
+            <a v-show="isAuthor3">修改3</a>
+            <div v-if  = "judgeRole()"> </div>
+        </div>
+    </div> -->
+
+
+
+
+    <script>
+    // <!-- b10-1  条件渲染  在div上控制显示哪个元素  -->
+    // var vm = new Vue({
+    //     el: "#yz-hello",  
+    //     data: {
+    //         isAuthor1: true,
+    //         isAuthor2: true,
+    //         isAuthor3: true,
+
+    //         users:[
+    //             {
+    //                 user:{ name : '杨嘉栋' , role:'common'}
+    //             }
+    //         ]
+    //     },
+    //     methods: {
+    //         judgeRole:function () {  //判断角色 judge：判决 
+            
+    //                this.isAuthor1 = true
+    //                this.isAuthor2 = false
+    //                this.isAuthor3 = true
+
+    //         },
+    //     }
+    // })
+    </script>
+
+
+
+
+        <!-- b18 指令 v-if 和 v-for 结合使用   -->
+    <!-- <div id="yz-hello">
+        <p v-for="(student,i) of students" v-if="i>1">
+            <span>{{i}}</span>: {{student}}
+         </p>
+    </div> -->
+    <!-- 面试题 if和for能否组合使用坏处 -->
+    <!-- 性能严重浪费 for必然跑一遍虚拟dom  -->
+    <!-- 单纯判断是否显示整体列表 先if  -->
+    <!-- 必须判断 列表具体值 计算属性 -->
+
+    <script>
+      
+    // b18 数组内容输出
+    // var vm = new Vue({
+    //     el: "#yz-hello",  
+    //     data: {
+    //         students:['夏康平','陈国栋', '韩佳宝'] ,
+    //     }
+    // })
+
+    </script>
+
+</body>
+</html>

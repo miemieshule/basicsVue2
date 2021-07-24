@@ -4,7 +4,7 @@
 
 // a1学习
 // new Vue({
-//     el:'#vue-app',
+//     el:'#vue-app', //要管理挂栽元素名字 
 //     data:{
 //         name:'Shaun',
 //         job:'Ninja'
@@ -27,7 +27,14 @@
 // job 工作 grttt欢迎 afernoon下午 time 时间 
 
 
+// 代码做了什么
+// 从框架new一个类，vue，传入optios对象  基础共用方法属性
+// data方法，计算属性，生命周期函数之类的
 
+// optios对象的选项
+// el 管理什么dom
+// data 实例对应数据 
+// methods 属于实例的方法 
 
 
 
@@ -57,84 +64,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// a3学习 点击事件 
-// new Vue({
-//     el:'#vue-app',
-//     data:{
-//         age:'23',
-//     },
-//     methods: {
-//         greet:function(time){
-//             return 'good' + time + ' ' + this.name ;
-//         }
-//     }
-// })
-
-
-// a3学习 双击事件 
-// new Vue({
-//     el:'#vue-app',
-//     data:{
-//         age:23,
-//     },
-//     methods: {
-//         add:function(inc){
-//             this.age += inc;
-//         },
-//         subtrct:function(dec){
-//             this.age-= dec;
-//         }
-//     }
-// })
-
-
-
-    // a3学习 事件修饰符 
-    // new Vue({
-    //     el:'#vue-app',
-    //     data:{
-    //         age:23,
-    //     },
-    //     methods: {
-    //         add:function(inc){
-    //             this.age += inc;
-    //         },
-    //         subtrct:function(dec){
-    //             this.age-= dec;
-    //         },
-    //         click:function(){
-    //             alert('点击会发生什么');
-    //         }
-    //     }
-    // })
-
-
-
-    //  a3学习 键盘事件 
-    // new Vue({
-    //     el:'#vue-app',
-    //     data:{
-    //     },
-    //     methods: {
-    //         logName:function(){
-    //             console.log('你输入了你的名字');
-    //         },
-    //         logAge:function(){
-    //             console.log('你输入了你的年龄');
-    //         },
-    //     }
-    // })
     
 
 
@@ -186,47 +115,8 @@
     // 每次改变一次data的随意 a属性一个值 ，mathods 方法就会重新运行一遍，其中的 b 属性值计算 c属性值 d属性值 进行计算 ，重新渲染一遍 
 
 
-    // a6学习 属性绑定 
-    // new Vue({
-    //     el: '#vue-app',
-    //     data: {
-    //         a: false,
-    //         b: false
-    //     },
-    //     methods: {
-    
-    //     },
-    //     computed: {
-    //         compClasses: function(){
-    //             return{
-    //                 available: this.a,
-    //                 nearby: this.b,
-    //             }
-    //         }
-    //     }
-    // });
 
-    // available 可获得的 
 
-    // a6 复刻 
-    // new Vue({
-    //     el: '#vue-app',
-    //     data: {
-    //         a1boolean: false,enrolleds
-    //         b1boolean: false
-    //     },
-    //     methods: {
-    
-    //     },
-    //     computed: {
-    //         compClasses: function(){
-    //             return{
-    //                 a1: this.a1boolean,
-    //                 b1 : this.b1boolean,
-    //             }
-    //         }
-    //     }
-    // });
 
 
 
@@ -307,8 +197,52 @@
     //     data: {
     //         bg: "blue",
     //         fs: "italic"
+    //     },
+
+		// 		methods: {
+		// 			getclass:function(){
+		// 				return [this.bg,this.fs]
+		// 			},
+		// 		}
+    // })
+
+     // b7 A1 class绑定 第二种  正常绑定 
+    // var vm = new Vue({
+    //     el: "#yz-hello",  
+    //     data: {
+		// 			mag:'yjd'
+    //     },
+
+    //     methods: {
+
     //     }
     // })
+
+			// b7 A2 class绑定 计算属性存入 绑定类数据 
+	// 		var vm = new Vue({
+	// 		el: "#yz-hello",  
+	// 		data: {
+	// 			mag:'yjd',
+	// 			color:true,
+	// 		},
+
+	// 		methods: {
+	// 			getclass:function(){
+	// 				return {active:this.color}
+	// 			}
+	// 		},
+
+	// 		computed: {
+	// 			getclasss:function(){
+	// 				return {active2:this.color}
+	// 			}
+	// 		}
+	// })
+
+
+
+
+	
 
 
     // b8 样式类 决定是否使用 
@@ -325,127 +259,39 @@
     // var vm = new Vue({
     //     el: "#yz-hello",  
     //     data: {
-    //         bg: "#b6ff00",
-    //         fs: "italic",
+    //         // bg: "#b6ff00",
+    //         // fs: "italic",
+
+    //         // 当做变量使用分支 data变量设置数字 拼接处理
+    //         // szi:100,
+
+    //         // 数组语法
+    //         baksty:{fontSize: '50px'},
+    //         bakbcak:{backgroundColor:'deepskyblue'},
+    //     },
+
+    //     methods: {
+    //       // // 当做变量使用分支 data变量设置数字 拼接处理
+    //       // existstyle:function(){
+    //       //   return {fontSize: this.szi + 'px' , backgroundColor:'deepskyblue'}
+    //       // },
+          
     //     }
     // })
     
 
-    // b10 条件渲染（v-if-else） 
-    // var vm = new Vue({
-    //     el: "#yz-hello",  
-    //     data: {
-    //         isAuthor: true,
-    //         isAdmin:true,
-    //     }
-    // })
-
-
-    // <!-- b10-1  条件渲染  在div上控制显示哪个元素  -->
-    // var vm = new Vue({
-    //     el: "#yz-hello",  
-    //     data: {
-    //         isAuthor1: true,
-    //         isAuthor2: true,
-    //         isAuthor3: true,
-
-    //         users:[
-    //             {
-    //                 user:{ name : '杨嘉栋' , role:'common'}
-    //             }
-    //         ]
-    //     },
-    //     methods: {
-    //         judgeRole:function () {  //判断角色 judge：判决 
-            
-    //                this.isAuthor1 = true
-    //                this.isAuthor2 = false
-    //                this.isAuthor3 = true
-
-    //         },
-    //     }
-    // })
+  
 
     
         
-    // b11 条件渲染（v-if-else） 和 v-show 区别 
-    // var vm = new Vue({
-    //     el: "#yz-hello",  
-    //     data: {
-    //         isAuthor: true,
-    //         isshow:false,
-    //     }
-    // })
+
 
     
 
-    // b12 数组内容输出
-    // var vm = new Vue({
-    //     el: "#yz-hello",  
-    //     data: {
-    //         students:['夏康平','陈国栋', '韩佳宝'] ,
-    //     }
-    // })
 
-
-
-    // b13  数组下标获取输出 
-    // var vm = new Vue({
-    //     el: "#yz-hello",  
-    //     data: {
-    //         students:['夏康平','陈国栋', '韩佳宝'] ,
-    //     }
-    // })
-
-
-
-    // b14 数组 中 对象内容 循环输出 
-    // var vm = new Vue({
-    //     el: "#yz-hello",  
-    //     data: {
-    //         students:
-    //         [        
-    //             { id: 8, name: '夏康平' },
-    //             { id: 12, name: '陈国栋' }
-    //         ] ,
-    //     }
-    // })
-
-
-
-    // b15 对象内容输出 
-    // var vm = new Vue({
-    //     el: "#yz-hello",  
-    //     data: {
-    //         student: { id: 8, name: '夏康平' },
-    //     }
-    // })
-
-
-
-
-    // b16 循环输出 数组 中 对象属性不规律情况  值输出
-    // var vm = new Vue({
-    //     el: "#yz-hello",  
-    //     data: {
-    //         students: [
-    //             { id: 8, name: '夏康平' },
-    //             { id: 12, score: 98 },
-    //             {name: '韩佳宝', from:'黑龙江'}
-    //         ]
-
-    //     }
-    // })
     
 
 
-    // b18 数组内容输出
-    // var vm = new Vue({
-    //     el: "#yz-hello",  
-    //     data: {
-    //         students:['夏康平','陈国栋', '韩佳宝'] ,
-    //     }
-    // })
 
 
 
@@ -471,6 +317,12 @@
     // destroyed 销毁 实例对象 
     // 操作数据 把开发人员设置的数据 给类实例对象，类实例对象 不同方法 带动不同数据周期 ， 操作节点安排数据变化 
 
+
+//// b站老师  生命周期
+// 得到不同的阶段 每个阶段类会做很多事情，开发者在不同的阶段进行调用 
+// 回调钩子函数 
+// 实例对象中可以传参，eldata，钩子函数，当实例执行的时候，有阶段的执行，发现参数里面有钩子函数，cerated钩子函数就进行回调这个函数，在某个周期执行，
+// 开发者本身没有调用钩子函数执行，是vue类接收到参数，执行生命周期顺序，完成了钩子函数的执行
 
     // 概念 
 //     dom
@@ -575,6 +427,70 @@
     //         }
     //     }
     // })
+
+
+    // b23-A1  计算属性 简单使用 
+  //   var vm = new Vue({
+  //     el: "#yz-hello",
+  //     data: {
+  //       rodomdata1: 'A',
+  //       rodomdata2: 'B',
+  //     },
+  //     computed: {
+  //         summary:function() {
+  //           return this.rodomdata1 + '  '+    this.rodomdata2;
+  //         },
+  //     }
+  // })
+
+
+    // b23-A2  计算属性 复杂使用 
+    // 注意 
+    // 块级作用域没有被释放 、
+    // s += 5;表示把s的值+5后复值给s
+    //   var vm = new Vue({
+    //     el: "#yz-hello",
+    //     data: {
+    //       books: [
+    //         {id:1,name:'a',price:1020},
+    //         {id:2,name:'b',price:1100},
+    //       ],
+    //     },
+    //     computed: {
+    //         sumNumber:function() {
+    //           let sum = 0 
+    //           for (let i = 0; i < this.books.length; i++) {
+    //             sum += this.books[i].price ;
+    //           }
+    //           return sum
+    //         },
+    //     }
+    // })
+
+
+  //b23-A3  计算属性 缓存效果代码展示 
+  //   var vm = new Vue({
+  //     el: "#yz-hello",
+  //     data: {
+  //       rodomdata1: 'A',
+  //       rodomdata2: 'B',
+  //     },
+  //     methods: {
+  //       msumary:function(){
+  //         console.log('方法缓存');
+  //         return this.rodomdata1 + '  '+    this.rodomdata2;
+  //       }
+  //     },
+  //     computed: {
+  //         summary:function() {
+  //           console.log('计算缓存');
+  //           return this.rodomdata1 + '  '+    this.rodomdata2;
+  //         },
+  //     }
+  // })
+
+
+      
 
 
 
@@ -758,107 +674,6 @@
 
 
 
-    // b33  v-model 修饰符 
-    // var vm = new Vue({
-    //     el: "#yz-hello",
-    //         data: {  
-    //             body:'',
-    //     },
-    // })
-
-
-    // b34  事件 
-    //   var vm = new Vue({
-    //     el: "#yz-hello",
-    //         data: {  
-    //             counter:1,
-    //     },
-    //     methods: {
-    //         plus: function () {
-    //             this.counter++;
-    //         }
-    //     }
-    // })
-
-
-    // b35  事件 
-    // 获取触发事件元素 
-    // 获取元素
-    // var vm = new Vue({
-    //     el: "#yz-hello",
-    //         data: {  
-    //             counter:100,
-    //     },
-    //     methods: {
-    //         plus: function (event) {
-    //             event.preventDefault();
-    //             console.log(event.target);
-    //             let self = event.target ;
-    //             self.style = "background-color:blue" ;
-
-    //             // style="color:red;
-    //             // s.style.backgroundColor = "red";
-    //             //this.style = "background-color:blue"
-    //             this.counter++;
-    //         }
-    //     }
-    // })
-
-
-
-    // <!-- 36 v-on 事件   -->
-    // <!-- 点击事件实现功能  影藏显示dom元素-->
-
-    // var vm = new Vue({
-    //     el: "#yz-hello",
-    //         data: {  
-    //             shown:true,
-    //     },
-    //     methods: {
-    //         toggle: function () {
-    //             this.shown = !this.shown ;
-    //         }
-    //     }
-    // })
-
-
-
-    // <!-- 37 组合训练   -->
-    // <!-- 模态功能 鼠标滑过显示信息-->
-    //     var vm = new Vue({
-    //     el: "#yz-hello",
-    //         data: {  
-    //             shown:false,
-    //             showTitle:'tooltip',
-    //     },
-    //     methods: {
-    //         show: function () {
-    //             this.shown = true ;
-    //         },
-    //         hide: function () {
-    //             this.shown = false ;
-    //         }
-    //     }
-    // })
-
-
-
-    // b39  事件修饰符 
-    // 事件流修饰符 
-    // var vm = new Vue({
-    //     el: "#yz-hello",
-    //         data: {  
-    //     },
-    //     methods: {
-    //         outer: function (event) {
-    //             console.log('outer: 外');
-    //         },
-    //         inner: function (event) {
-    //             console.log('inner 内');
-    //         },
-
-    //     }
-    // })
 
 
     

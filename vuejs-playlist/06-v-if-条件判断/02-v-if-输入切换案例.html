@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/vue-js/vue.js"></script>
+</head>
+<body>
+  
+    <!-- 登录切换小案例 -->
+    <!-- 点击按钮 切换不同输入 -->
+    <div id="yz-hello3">
+      <span v-if="state" >
+        <label for="isuer">用户账号
+          <input type="text" id="isuer" placeholder="用户账号" >
+        </label>
+      </span>
+      <span v-else>
+        <label for="eamai">用户邮箱
+          <input type="text"  id="eamai" placeholder="用户邮箱"  >
+        </label>
+      </span>
+      <button @click="state = !state">切换</button>
+    </div>
+
+    <script>      
+      var vm = new Vue({
+          el: "#yz-hello3",  
+          data: {
+              state: true
+          },
+            
+      })
+      </script>
+
+
+</body>
+</html>

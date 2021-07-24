@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 01 作业 </title>
+
+  <!-- vue2 文件引入 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+  
+      <!-- b7 作业 A3 点击啥字啥字变色   -->
+      <style>
+        .active2{
+          color: red;
+        }
+      </style>
+      <div id="yz-hello" >
+          <ul>
+            <li  v-for="(s,index) of 	rodomdata "  v-on:click="getclass(index)" v-bind:class="{active2:index==tempindex}" >{{s}}-{{index}}</li>
+          </ul>
+      </div>
+
+      <script>
+                // b7 样式类 a3作业 
+        var vm = new Vue({
+          el: "#yz-hello",  
+          data: {
+            tempindex:-1,
+            rodomdata:['a1','a2','a3']
+          },
+
+          methods: {
+            getclass:function(index){
+              this.tempindex = index
+            },
+          }
+      })
+      </script>
+
+
+
+    <style>
+        a{
+        background: red;
+        display: inline-block;
+        padding: 10px;
+        color: #fff;
+        margin: 10px 0;
+    }
+
+    .a1 a{
+        background: green;
+    }
+
+    .b1 a:after{
+        content: "nearby";
+        margin-left: 10px;
+    }
+
+    /* available  可获得的  */
+
+    </style>
+
+    <!-- a6 需求：按钮点击 对应的类生效 -->
+     <div id="vue-app">
+        <button v-on:click="b1boolean = !b1boolean">Toggle nearby</button>
+        <button v-on:click="a1boolean = !a1boolean">Toggle available</button>
+        <div v-bind:class="compClasses">
+            <a  href="">魔改</a>
+        </div>
+    </div>
+    <!-- 特点  -->
+    <!-- 点击改变布尔值 同时类布尔值改变 类生效 -->
+    <!-- 计算属性返回类对象语法进行绑定 -->
+    <script>
+      
+    // a6 复刻 
+    new Vue({
+        el: '#vue-app',
+        data: {
+            a1boolean: false,
+            b1boolean: false
+        },
+        methods: {
+    
+        },
+        computed: {
+            compClasses: function(){
+                return{
+                    a1: this.a1boolean,
+                    b1 : this.b1boolean,
+                }
+            }
+        }
+    });
+    
+    </script>
+</body>
+</html>

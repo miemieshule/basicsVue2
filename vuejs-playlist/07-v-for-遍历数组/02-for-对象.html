@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/vue-js/vue.js"></script>
+</head>
+<body>
+
+   <!-- b14 数组中 对象 循环输出 -->
+    <!-- 循环输出对象属性 输出对象值 value-->
+    <div id="yz-hello1">
+        <ul>
+            <li v-for="(student,index) in students">
+              {{student}}
+            </li>
+        </ul>
+    </div>
+    <script>
+    // b14 数组 中 对象内容 循环输出 
+    var vm = new Vue({
+        el: "#yz-hello1",  
+        data: {
+            students:    
+                { id: 8, name: '夏康平' },
+        }
+    })
+
+    </script>
+  
+
+    <!-- b15 循环输出 -->
+    <!-- 循环输出对象属性 输出对象属性 对象属性值 -->
+    <div id="yz-hello2">
+        <ul>
+            <li v-for="(prop,key,i) in student">
+                {{i}} - {{key}} - {{prop}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+    // b15 对象内容输出 
+    var vm = new Vue({
+        el: "#yz-hello2",  
+        data: {
+            student: { id: 8, name: '夏康平' },
+        }
+    })
+    </script>
+
+
+
+  
+</body>
+</html>

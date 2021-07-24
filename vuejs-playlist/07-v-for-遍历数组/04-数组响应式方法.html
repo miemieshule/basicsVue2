@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/vue-js/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+
+    <div id="yz-hello">
+        <ul>
+            <li v-for="student in students" :key="student">{{student}} </li>
+        </ul>
+        <button @click="cfun"> 响应式修改数组 </button>
+    </div>
+
+    <script>
+
+    var vm = new Vue({
+        el: "#yz-hello",  
+        data: {
+            students:['A','D', 'C'] ,
+        },
+        methods: {
+          cfun(){
+            // push 最后一个元素添加 
+            // this.students.push('yjd','duang')
+
+            // pop 最后一个元素删除 
+            // this.students.pop()
+
+          // shift 删除头部元素
+          // this.students.shift()
+          
+          // 数组最前面添加元素
+          // this.students.unshift('yjd','duang')
+          
+          // splice f方法 删除/替换/插入 
+          // 语法结构 第一位数是起始位置 
+          // 删除 第二位数决定删除几个
+          //  this.students.splice(1,this.students.length-1) 
+          // 替换 下标1开始 删除1个，追加新内容 
+          //  this.students.splice(1,1,'大飞哥','大飞哥1') 
+          // 插入 下标1开始 第一个1元素 ，增加新内容 
+          // this.students.splice(3,0,'大飞哥1','大飞哥2','大飞哥3') 
+
+          // .sort() 排序 正序 
+          // this.students.sort()
+          
+          // .reverse() 反序 
+          // this.students.reverse()
+          // 
+          }
+        }
+    })
+    </script>
+
+
+    
+<script>
+  // 返回新数组替换
+  // vm.students = vm.students.concat('飞哥')
+  //直接改值 
+  // vm.students = ['飞哥', '小鱼']
+</script>
+
+
+</body>
+</html>

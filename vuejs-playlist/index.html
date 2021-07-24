@@ -14,6 +14,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </head>
+
 <body>
 
         <!-- 最大的问题就是后端数据发过来什么样子结构不知道，导致的，
@@ -41,48 +42,6 @@
 
 
 
-
-
-
-
-    <!-- a3学习 点击事件 -->
-    <!-- <div id="vue-app">
-        <h1>Events</h1>
-        <button v-on:click="age++">Add 加一岁 </button>
-        <button v-on:click="age--" >subercat 减一岁 </button>
-        <p>age: {{age}}</p>
-    </div> -->
-
-    <!-- a3 双击事件 -->
-    <!-- <div id="vue-app">
-        <h1>Events</h1>
-        <button v-on:click="add(1)">Add 加1岁 </button>
-        <button v-on:click="subtrct(1)" >subercat 减1岁 </button>
-        <button v-on:dblclick="add(10)">Add 加10岁 </button>
-        <button v-on:dblclick="subtrct(10)" >subercat 减10岁 </button>
-        <p>age: {{age}}</p>
-    </div> -->
-
-    <!-- a3 事件修饰符 -->
-    <!-- <div id="vue-app">
-        <h1>Events</h1>
-        <button v-on:click.once="add(1)">Add 加1岁 </button>
-        <p>age: {{age}}</p>
-        <a v-on:click.prevent="click" href="https://17bang.ren/Code/242">学习站点</a>
-    </div> -->
-    <!-- .once 只允许执行一次 -->
-    <!--需求： 点击提示链接 弹窗提示 关闭弹窗 不允许跳转  取除事件默认行为  prevent-->
-
-    <!-- a3 键盘事件 -->
-    <!-- <div id="vue-app">
-        <h1>Key board Events 键盘事件</h1>
-        <label>Name:</label>
-        <input type="text" v-on:keyup.enter="logName">
-        <label>Age:</label>
-        <input type="text" v-on:keyup="logAge" >
-    </div> -->
-    <!-- 标签里引用事件 和在视图对象中写事件是一样的效果 -->
-    <!-- 指定某个键松开后执行事件 enter -->
 
         
 
@@ -132,84 +91,22 @@
     -->
 
 
-    <!-- a6 属性绑定学习  -->
-    <!-- <style>
-        span{
-        background: red;
-        display: inline-block;
-        padding: 10px;
-        color: #fff;
-        margin: 10px 0;
-    }
-
-    .available span{
-        background: green;
-    }
-
-    .nearby span:after{
-        content: "nearby";
-        margin-left: 10px;
-    }
-
-    /* available  可获得的  */
-
-    </style> -->
-
-    <!-- <div id="vue-app"> -->
-        <!-- <h1>Dynamic CSS</h1>
-        <h2>Example 1</h2>
-        <div v-on:click="available = !available" v-bind:class="{available: available}">
-        <span>Ryu</span>
-        </div> -->
-
-        <!-- <h2>Example 2</h2>
-        <button v-on:click="a = !a">Toggle nearby</button>
-        <button v-on:click="b = !b">Toggle available</button>
-        <div v-bind:class="compClasses">
-        <span>Ryu</span>
-        </div> -->
-    <!-- </div> -->
+    
 
 
-    <!-- <style>
-        a{
-        background: red;
-        display: inline-block;
-        padding: 10px;
-        color: #fff;
-        margin: 10px 0;
-    }
 
-    .a1 a{
-        background: green;
-    }
 
-    .b1 a:after{
-        content: "nearby";
-        margin-left: 10px;
-    }
 
-    /* available  可获得的  */
 
-    </style> -->
 
-    <!-- a6 复刻版 -->
-    <!-- <div id="vue-app">
-        <button v-on:click="b1boolean = !b1boolean">Toggle nearby</button>
-        <button v-on:click="a1boolean = !a1boolean">Toggle available</button>
-        <div v-bind:class="compClasses">
-            <a  href="">魔改</a>
-        </div>
-    </div> -->
-    <!-- 特点  -->
-    <!-- 点击时候 没有设置方法 通过绑定计算属性中一个类 ，点击时候 布尔值发生改变，触发计算属性中的方法开始执行  -->
-    <!-- 对想要的元素进行，操作，那么必须在外层的壳子上设置 -->
-    <!-- 点击以后 居然还可以返回类 然后布尔值 决定类是否执行 -->
-    <!-- 最后 return 返回的是一个对象  -->
 
-    <!-- 再次研究  特点-->
-    <!-- 分离性 原来的dom是一个元素范围绑定一个事件跑 -->
-    <!-- vue 事件和执行函数是分开的  一个点击事件在按钮上  一个执行函数在div上  并且执行函数里设置两种不同的点击事件  -->
+
+
+
+
+
+
+
 
 
 
@@ -251,6 +148,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- b6 属性绑定   动态参数 -->
         <!-- 参考资料 -->
     <!-- <h1 v-bind:title="who + '1' "  id="yz-hello">飞哥 属性使用js表达式 + </h1> -->
@@ -260,16 +175,67 @@
     <!-- 上面attr是活的 重命名的 在渲染函数里面 ,当成变量用 里面存着title属性,who也是活的  -->
 
     
-
-    <!-- b7 class 样式类 绑定 -->
+      <!-- class绑定 -->
+    <!-- b7 class 样式类 绑定 数组绑定法 -->
     <!-- <h1 id="yz-hello" v-bind:class="[bg,fs]">hello，源栈</h1> -->
+    <!-- <h1 id="yz-hello" v-bind:class="['bg','fs']">hello，源栈</h1> -->
+    <!-- 注意 数组名字:不加单引号是指向data区的 加了就放弃data区域指向 -->
+
+   <!-- 不用数组 用名字绑定 -->
+    <!-- <h1 id="yz-hello" v-bind:class="bg">hello，源栈</h1> --> 
+  
+    <!-- 存入数据区，调用 -->
+  <!-- <h1 id="yz-hello" v-bind:class="getclass()">hello，源栈</h1> -->
+
+
+    <!-- b7 A1 class绑定 第二种 正常绑定   -->
+    <!-- <style>
+      .active{
+        color: green;
+      }
+    </style>
+    <div id="yz-hello" >
+        <h2 class="active" >{{mag}}</h2>
+    </div> -->
+
+
+    
+    <!-- b7 A2 class绑定 第三种 存方法或计算属性绑定   -->
+    <!-- <style>
+      .active{
+        color: green;
+      }
+      .active2{
+        color: red;
+      }
+    </style>
+    <div id="yz-hello" >
+        <h2 :class="getclass()" >{{mag}}</h2>
+        <h2 :class="getclasss" >{{mag}}</h2>
+    </div> -->
+
+
+
+
 
 
     <!-- b8 class 样式类 决定是否使用 -->
+    <!-- 对象绑定法 -->
     <!-- <h1  id="yz-hello"  v-bind:class="{blue:isActive}">hello，源栈</h1> -->
     <!-- vm.isActive = false -->
-    <!-- 资料1 多个类  对象中 ，可以传多个类名 ，类名值： 在渲染设置参数，能用还是不能用 "{blue:isActive, italic:needEmphasis}" -->
+    <!-- 资料1 多个类  对象中 ，可以传多个类名 ，类值： 在渲染设置参数，能用还是不能用 "{blue:isActive, italic:needEmphasis}" 这些对象包裹键值对的方法 也叫对象语法 -->
     <!-- 资料2 对象和数组混用 数组是装多个类的 [bg,{italic:needEmphasis}] 一 区别 ：个用原生类名 一个不用原生类名  -->
+    <!-- 资料3 数据操作 b站老师 类名和布尔值，放到方法里绑定方法返回值，或者放入计算属性  -->
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -277,126 +243,36 @@
     <!-- 行内绑定类 -->
     <!-- 行内绑定背景色 背景色值 渲染函数控制 -->
     <!-- <h1 id="yz-hello" v-bind:style="{fontStyle:fs, backgroundColor:bg}">杨嘉栋</h1> -->
-    
-    
-    <!-- b10 条件渲染（v-if-else） -->
-    <!-- 条件控制元素 是否显示 -->
-    <!-- <div id="yz-hello">
-        <h1 >源栈欢迎你 要努力学习 </h1>    
-        <a v-if="isAuthor">修改</a>
-        <a v-else-if="isAdmin">删除</a>
-        <span v-else>你无权修改</span>
-    </div> -->
-    <!-- 问题 -->
-    <!-- 无法使用v-if 两个实例范围冲突了  因为我上面那个 app 的id块包含了 下面的那个 app2 的id块  -->
-
-
-    <!-- b10-1  条件渲染  在div上控制显示哪个元素  -->
-    <!-- 条件控制元素 是否显示 -->
-    <!-- 重点 ：要渲染完成才能控制显示什么元素 不是放在最上面的div进行控制  -->
-    <!-- <div id="yz-hello">
-        <div >
-            <h1 >源栈欢迎你 要努力学习</h1>    
-            <a v-show="isAuthor1">修改1</a>
-            <a v-show="isAuthor2">修改2</a>
-            <a v-show="isAuthor3">修改3</a>
-            <div v-if  = "judgeRole()"> </div>
-        </div>
-    </div> -->
-
-
-    <!-- b11 条件渲染（v-if-else）和 v-show 的区别 -->
-    <!-- <div id="yz-hello">
-        <h1 >源栈欢迎你 要努力学习 </h1>    
-        <a v-if="isAuthor">1修改</a>
-        <a v-show="isshow">2修改</a>
-    </div> -->
-    <!-- v-if 为渲染 v-show 显示 一个if判断后决定是否加载节点 一个不论结果直接加载然后样式进行调整不显示-->
-    <!-- 使用 如果数据经常变化 就用show 只调节style 不重新加载 , 如果数据稳定 就用 v-if  -->
-
-
-    <!-- b12 列表渲染 -->
-    <!-- 数组内容循环 增加节点 -->
-    <!-- <div id="yz-hello">
-        <ul>
-            <li v-for="student in students">{{'欢迎新同学：'+student}}</li>
-        </ul>
-    </div> -->
-
-
-    <!-- b13 列表渲染 -->
-    <!--数组内容循环 数组下标循环 节点增加 -->
-    <!-- <div id="yz-hello">
-        <ul>
-            <li v-for="(student,index) in students">
-              
-                {{index+1}} - {{'欢迎新同学：'+student}}
-            </li>
-
-        </ul>
-    </div> -->
-    <!-- 特点 获取多个数据 多个花括号组合使用 -->
-
-
-    <!-- b14 数组中 对象 循环输出 -->
-    <!-- 循环输出对象属性 输出对象值-->
-    <!-- <div id="yz-hello">
-        <ul>
-            <li v-for="(student,index) in students">
-                {{index+1}} - {{'欢迎新同学：'+ student}}
-            </li>
-            <li v-for="student of students">
-                {{'欢迎新同学'+student+':'+student}}
-            </li>
-        </ul>
-    </div> -->
-    <!-- li可以循环增加 换成p标签也一样      -->
-    <!-- {{index+1}} - {{'欢迎新同学：'+ student}}   模板中不做'欢迎新同学：'+计算 输出数组对象所有值{ "id": 12, "score": 98 }，    模板中做计算输出- 欢迎新同学：[object Object] -->
-
-
-
-    <!-- b15 循环输出 -->
-    <!-- 循环输出对象属性 输出对象值 对象属性下标 -->
-    <!-- <div id="yz-hello">
-        <ul>
-            <li v-for="(prop,key,i) in student">
-                [{{i}}]{{key}}：{{prop}}
-            </li>
-        </ul>
-    </div> -->
-
-
-    <!-- b16 循环输出 -->
-    <!-- 循环输出 数组 中 对象属性不规律情况  值输出  -->
-    <!-- <div id="yz-hello">
-        <li v-for="(student,i) in students">
-            <span v-for="value in student"> [{{i}}] {{value}}；</span>
-        </li>
-    </div> -->
-    <!-- 重点 先循环出student的所有值集合 为student ，在用student集合循环出其中单个值  value代表student每一个值 -->
+    <!-- 写法  -->
+    <!--  v-bind:style="{color:color}  -->
+    <!-- 属性名驼峰标识写法 -->
+    <!-- 当做变量使用 -->
+    <!--  v-bind:style="{fontStyle:fs, backgroundColor:bg}  -->
+    <!-- 属性名短横杠写法 -->
+     <!--  v-bind:style="{font-style:fs, background-color:bg}  -->
+     <!-- 行内写值 -->
+     <!-- 当做字符串使用 -->
+    <!-- <h1 id="yz-hello" :style="{fontSize:'100px'}">杨嘉栋</h1> -->
+    <!-- 当做变量使用分支 data变量设置数字 拼接处理 -->
+    <!-- <h4 id="yz-hello" v-bind:style="{fontSize: szi + 'px'}">杨嘉栋</h4> -->
+    <!-- 数据存入data去 方法返回样式调用 -->
+    <!-- <h4 id="yz-hello" v-bind:style="existstyle()">杨嘉栋</h4> -->
+    <!-- 数组语法 绑定style -->
+    <!-- <h4 id="yz-hello" v-bind:style="[baksty,bakbcak]">杨嘉栋 数组语法   style绑定 </h4> -->
+     
+   
 
 
     
 
-    <!-- b17 响应式修改数组内容 -->
-    <!--  响应式条件 数组整体修改 vm.students = ['飞哥', '小鱼'] -->
-    <!--  响应式修改 数组中单个元素 js中Arry数组定义的方法 vm.students.shift() shift 删除头部元素 vm.students.unshift('邹丽')添加元素  -->
-    <!--  响应式替换  数组中单个元素 js中数组方法  vm.students.splice(1,1,'大飞哥')  下标1开始 第一个1元素 ，替换新内容 -->
-    <!--  响应式返回新数组替换 vm.students = vm.students.concat('飞哥') -->
+
+    
+
+
     
     
     
-    
-    <!-- b18 指令 v-if 和 v-for 结合使用   -->
-    <!-- <div id="yz-hello">
-        <p v-for="(student,i) of students" v-if="i>1">
-            <span>{{i}}</span>: {{student}}
-         </p>
-    </div> -->
-    <!-- 面试题 if和for能否组合使用坏处 -->
-    <!-- 性能严重浪费 for必然跑一遍虚拟dom  -->
-    <!-- 单纯判断是否显示整体列表 先if  -->
-    <!-- 必须判断 列表具体值 计算属性 -->
+
 
 
 
@@ -455,6 +331,30 @@
     <!-- <div  id="yz-hello" >
         {{summary}}
     </div> -->
+
+    <!--b23-A1 计算属性简单使用 字符串拼接  -->
+    <!-- <div  id="yz-hello" >
+        <p>{{summary}}</p>
+    </div> -->
+
+
+    <!--b23-A2 计算属性复杂使用  -->
+    <!-- <div  id="yz-hello" >
+        <p>{{sumNumber}}</p>
+    </div> -->
+
+    <!--//b23-A3  计算属性 缓存效果代码展示  -->
+    <!-- <div  id="yz-hello" >
+        <p>{{summary}}</p>
+        <p>{{summary}}</p>
+        <p>{{summary}}</p>
+
+        <p>{{msumary()}}</p>
+        <p>{{msumary()}}</p>
+        <p>{{msumary()}}</p>
+    </div> -->
+
+
 
 
     <!--b24 计算属性 set   -->
@@ -542,111 +442,16 @@
 
 
 
-    <!-- v-model 33 绑定 修饰符 -->
-    <!-- <div  id="yz-hello" >
-        <input type="text" v-model.lazy="body" />
-        <input type="text" v-model.number="body" /> 自动将用户的输入值转为数值类型
-        <input type="text" v-model.trim="body" /> 忽略开头尾部的空格 
-        <input type="text" v-model.lazy.trim.number="body" /> 添加多个修饰符 
-    </div> -->
-    <!-- .lazy修饰 作用 当输入框事情焦点的时，数据才会进行响应传递 -->  
+  
+
+  
 
 
 
-    <!-- 34 v-on 事件  -->
-    <!-- <button v-on:click="age++">Add 加一岁 </button> //直接算 
-    <button v-on:dblclick="add(10)">Add 加10岁 </button> // 带方法返回值运算  -->
-    <!-- <div id="yz-hello">   
-        <button v-on:click="plus" >++</button>
-        <p>{{counter}}</p>
-    </div> -->
-    <!-- a绑定方式 JavaScript表达式  month方法绑定 -->
-
-    <!-- 理念 -->
-    <!-- 在模板上生成HTML虚拟dom元素 -->
-
-    <!-- 35 v-on 事件   -->
-    <!-- 获取点击事件元素 -->
-    <!-- <div id="yz-hello">   
-        <button v-on:click="plus" >++</button> -->
-        <!-- <button v-on:click="plus" >++</button>
-        <button v-on:click="plus($event)" >++</button> -->
-        <!-- <p>{{counter}}</p>
-    </div> -->
-
-
-    <!-- 36 v-on 事件   -->
-    <!-- 点击事件实现功能  影藏显示dom元素-->
-    <!-- <div id="yz-hello">   
-        <button v-on:click="toggle" >点击影藏消失</button>
-        <p v-show = "shown">你好
-            <a href="">你好</a>
-            <a href="">你好</a>
-            <a href="">你好</a>
-        </p>
-    </div> -->
-
-
-
-    <!-- <style>
-        .tooltip {
-        background-color: cadetblue;
-        position: relative;
-        right: 65px;
-        bottom: 20px;
-        }
-    </style> -->
-    <!-- 37 组合训练   -->
-    <!-- 模态功能 鼠标滑过显示信息-->
-    <!-- <p style="padding-top: 50px;" id="yz-hello" >   
-        <span v-on:mouseover="show" v-on:mouseout="hide"  v-bind:title="showTitle"  >源栈欢迎您</span>
-        <span v-if="shown" class="tooltip">{{showTitle}}</span>
-    </p> -->
-
-    <!-- <span v-on:mouseover="show" v-on:mouseout="hide" v-bind:title="showTitle">源栈欢迎您</span>
-    <span v-if="shown" class="tooltip">{{showTitle}}</span> -->
-    <!-- tooltip 提示 -->
-    <!-- 相对定位控制提示位置 -->
-    <!-- 事件 mouseover 鼠标悬停 -->
-    <!-- 绑定提示data数据 -->
-    <!-- 一个元素 用多个v-on 事件绑定  鼠标离开事件  -->
-    <!-- 这里的if 是我比较疑惑的  -->
 
     
 
-    <!-- 38 修饰符  prevent   -->
-        <!-- <div id="yz-hello">   
-        <button v-on:click="plus" >++</button>
-        <button v-on:click="plus" >++</button>
-        <a href="http://17bang.ren" v-on:click.prevent="plus($event)" >++</a>
-        <p>{{counter}}</p>
-        </div> -->
-            
-    <!-- 参考资料 -->
-    <!-- <a v-on:click.prevent="click" href="https://17bang.ren/Code/242">学习站点</a>-->
-     <!-- <input type="text" v-model.lazy.trim.number="body" /> 添加多个修饰符  -->
-
-
-
-     
-    <!-- 39 修饰符  事件   -->
-    <!-- 冒泡起始 拦截 .stop -->
-    <!-- 冒泡起始元素a  前方元素b拦截上升路径  self -->
-    <!-- <style>
-        div {
-            border: 1px solid;
-        }
-    </style> -->
-    <!-- <div id="yz-hello">    -->
-        <!-- <div v-on:click.self="outer" style="padding:40px;" id="yz-hello">
-            <div v-on:click="inner">inner</div>
-        </div> -->
-        <!-- <div v-on:click="outer" style="padding:40px;" id="yz-hello">
-            <div v-on:click.stop="inner">inner</div>
-        </div>
-
-    </div> -->
-    <!-- outer 是方法 -->
+   
 
 
 

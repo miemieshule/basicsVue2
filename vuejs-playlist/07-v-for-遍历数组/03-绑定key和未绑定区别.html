@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/vue-js/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+
+    <div id="yz-hello">
+        <ul>
+            <li v-for="student in students" :key="student">{{student}} </li>
+        </ul>
+    </div>
+
+    <script>
+
+    var vm = new Vue({
+        el: "#yz-hello",  
+        data: {
+            students:['A','B', 'C'] ,
+        },
+    })
+    // 注意 
+    // key标识不可用index 
+    </script>
+
+    <script>
+      // 论key作用
+      // 插入元素操作对ditt算法影响
+      // 有key值唯一标识 中间插入 效率高 
+      // 没有key值 遍历所有 在中间完成插入
+
+      // 下标1开始 第一个1元素 ，替换新内容 
+      //  vm.students.splice(1,1,'大飞哥') 
+
+      //下标1开始 第一个1元素 ，增加新内容 
+      // vm.students.splice(1,0,'大飞哥') 
+    </script>
+    
+    <script>
+      // 返回新数组替换
+      // vm.students = vm.students.concat('飞哥')
+      
+      //直接改值 
+      // vm.students = ['飞哥', '小鱼']
+      
+      // shift 删除头部元素
+      // vm.students.shift() 
+      // 添加元素
+      // vm.students.unshift('邹丽')
+    </script>
+
+</body>
+</html>

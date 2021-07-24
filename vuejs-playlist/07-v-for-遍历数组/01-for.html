@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>v-for</title>
+  <script src="/vue-js/vue.js"></script>
+</head>
+<body>
+  
+  <!-- b12 列表渲染 -->
+    <!-- 数组内容循环 增加节点 -->
+    <!-- <div id="yz-hello">
+        <ul>
+            <li v-for="student in students">{{'欢迎新同学：'+student}}</li>
+        </ul>
+    </div> -->
+
+
+    <!-- b13 列表渲染 -->
+    <!--数组内容循环 数组下标循环 节点增加 -->
+    <!-- <div id="yz-hello">
+        <ul>
+            <li v-for="(student,index) in students">
+              
+                {{index+1}} - {{'欢迎新同学：'+student}}
+            </li>
+
+        </ul>
+    </div> -->
+    <!-- 特点 获取多个数据 多个花括号组合使用 -->
+
+
+   
+
+
+    <!-- b16 循环输出 -->
+    <!-- 循环输出 数组 中 对象属性不规律情况  值输出  -->
+    <!-- <div id="yz-hello">
+        <li v-for="(student,i) in students">
+            <span v-for="value in student"> [{{i}}] {{value}}；</span>
+        </li>
+    </div> -->
+    <!-- 重点 先循环出student的所有值集合 为student ，在用student集合循环出其中单个值  value代表student每一个值 -->
+
+    <script>
+          // b12 数组内容输出
+    // var vm = new Vue({
+    //     el: "#yz-hello",  
+    //     data: {
+    //         students:['夏康平','陈国栋', '韩佳宝'] ,
+    //     }
+    // })
+
+
+
+    // b13  数组下标获取输出 
+    // var vm = new Vue({
+    //     el: "#yz-hello",  
+    //     data: {
+    //         students:['夏康平','陈国栋', '韩佳宝'] ,
+    //     }
+    // })
+
+
+    // b16 循环输出 数组 中 对象属性不规律情况  值输出
+    // var vm = new Vue({
+    //     el: "#yz-hello",  
+    //     data: {
+    //         students: [
+    //             { id: 8, name: '夏康平' },
+    //             { id: 12, score: 98 },
+    //             {name: '韩佳宝', from:'黑龙江'}
+    //         ]
+
+    //     }
+    // })
+
+    </script>
+</body>
+</html>

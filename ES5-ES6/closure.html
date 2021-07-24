@@ -8,6 +8,8 @@
 </head>
 <body>
 
+    
+
     <h2>万紫千红</h2>
     <button style="color:red" name="change-color">变红</button>
     <button style="color:blue" name="change-color">变蓝</button>
@@ -190,9 +192,46 @@
         </script>
 
 
+        <!-- b站 函数作用域 -->
+        <!-- <button>难1</button>
+        <button>难2</button>
+        <button>难3</button>
+
+        <script>
+        var bs = document.getElementsByTagName('button');
+        for (var i = 0; i < bs.length; i++) {
+
+            (function(num){
+            bs[i].addEventListener('click',function(){
+            console.log( '点击' + num  );
+            })
+            }(i))      
+        }
+        </script> -->
+        <script>
+        // 击时候如何取到下标的？
+        // 当时绑定按照下标绑定的 下标1 li1事件、 下标2 li2事件，那么点击事件触发，取出绑定的下标
+
+        //let关键字和var关键字区别？
+        // 变量定义后可用范围不同，留存释放机制不同
+        // 在条件语句表现明显，for块级，if块级，定义后没有作用域
 
 
+        // 特点
+        // 作用域外使用、
+        // 一个函数产生值，另一个函数 调用值，
+        // 值不能销毁，生命周期、
+        // function是有作用域
 
+        // 闭包作用域
+        // 在还没用的时候，i的值已被改变，i++动手改的，解决方法，函数再次调用形成闭包，不让释放值 ，也叫函数作用域 ，
+        // 值传入后，归函数作用域，不受影响，
+        
+        // es5 只能借助函数闭包作用域 存进去一个新值用一次
+        // es6 let 
+        // 每次有新值，都直接产生一个新的作用域来存放使用
+
+        </script>
 
 
 
@@ -429,12 +468,6 @@
 
 
 
-    <!-- 变量 可以改变 常量不可改变 -->
-    <!-- 常量声明时候必须赋值 赋值后不可改 --> 
-    <!-- 常量中的对象值可以改变 常量的是引用没有改变 但是对象的地址映射改变值 -->
-    <script>
-        const k = 1 ;
-    </script>
 
 
 

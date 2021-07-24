@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象字面量 增强语法</title>
+</head>
+
+<body>
+
+  <h1> 字面量增强就是不断的想办法简写 </h1>
+
+<script>
+  // 字面量写法
+  const a = new Object(
+    {
+      name: 1,
+      age: 100,
+    },
+  );
+  console.log(a);
+
+
+
+
+
+  // 简写成大括号就叫对象字面量， 因为是从object对象类 new出来的，产生对象，
+  const b = {
+    age: 100,
+  }
+  console.log(b);
+
+
+
+  // 开发需要 全局拿到const的常量，赋值给对象 
+  // ES5增强写法
+  const d = '100d';
+  const d1 = {
+    d3: d,
+  }
+  console.log(d1);
+
+
+
+
+
+  // es6增强写法
+  const e = {
+    d,
+  }
+  console.log(e);
+
+
+
+
+
+
+
+  // 开发需要 函数增强写法
+  // es5版本 
+  const f = {
+    f1: function () {
+      console.log(e);
+    }
+  }
+
+  f.f1();
+
+  // es6 
+  const h = {
+    h1() {
+      console.log(e);
+    }
+  }
+  h.h1();
+
+
+
+</script>
+
+</body>
+
+</html>

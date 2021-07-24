@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>修饰符</title>
+
+  <script src="/vue-js/vue.js"></script>
+
+</head>
+<body>
+
+  <script>
+  // 重点资料 
+
+  // 事件流修饰符
+  // 总结 一个从起源地拦住，一个起源地外部建造一堵墙拦截 
+  // 外墙
+  // <!-- <div v-on:click.self="" ></div>
+  //原地  
+  // <div v-on:click.stop=""></div>
+
+
+  // 事件修饰符// 事件使用 
+  // prevent 阻止默认事件 
+  //   <a v-on:click.prevent="click" href="https://17bang.ren/Code/242">学习站点</a>
+  // .once 只允许执行一次       
+  // <button v-on:click.once="add(1)">Add 加1岁 </button>
+
+
+
+  // 键盘修饰符 监听键帽
+  // 指定某个键松开后执行事件     | keyup:按键、 enter:进入 
+  //  <input type="text" v-on:keyup.enter="logName">
+
+
+
+  // 表单修饰符  // 双向绑定使用 
+  // <input type="text" v-model.lazy="body" /> //.lazy修饰 作用 当输入框事情焦点的时，数据才会进行响应传递 -
+  //       <input type="text" v-model.number="body" /> 自动将用户的输入值转为数值类型
+  //       <input type="text" v-model.trim="body" /> 忽略开头尾部的空格 
+  //       <input type="text" v-model.lazy.trim.number="body" /> 添加多个修饰符 
+  </script>
+
+
+    <!-- 39 修饰符  事件   -->
+    <!-- 冒泡起始 拦截 .stop -->
+    <!-- 冒泡起始元素a  前方元素b拦截上升路径  self -->
+    <!-- 总结 一个从起源地拦住，一个起源地外部建造一堵墙拦截  -->
+    <!-- <style>
+        div {
+            border: 1px solid;
+        }
+    </style> -->
+    <!-- <div id="yz-hello">    -->
+        <!-- <div v-on:click.self="outer" style="padding:40px;" id="yz-hello">
+            <div v-on:click="inner">inner</div>
+        </div> -->
+        <!-- <div v-on:click="outer" style="padding:40px;" id="yz-hello">
+            <div v-on:click.stop="inner">inner</div>
+        </div>
+
+    </div> -->
+  
+    <script>
+      // b39  事件修饰符 
+      // 事件流修饰符 
+      // var vm = new Vue({
+      //     el: "#yz-hello",
+      //         data: {  
+      //     },
+      //     methods: {
+      //         outer: function (event) {
+      //             console.log('outer: 外');
+      //         },
+      //         inner: function (event) {
+      //             console.log('inner 内');
+      //         },
+  
+      //     }
+      // })
+  
+      </script>
+
+
+
+
+     <!-- 38 修饰符  事件prevent   -->
+    <!-- <div id="yz-hello">   
+        <a href="http://17bang.ren" v-on:click.prevent="puls" >点击是否会生效</a>
+    </div> -->
+      
+    <!-- <script>
+          var vm = new Vue({
+          el: "#yz-hello",
+              data: {  
+                  body:'',
+          },
+          methods: {
+            puls(){
+              console.log('阻止默认事件');
+            },
+          }
+      })
+    </script> -->
+
+        
+
+
+    
+    <!-- a3 键盘事件 修饰符 -->
+    <div id="vue-app3">
+        <h1>Key board Events 键盘事件-修饰符</h1>
+        <label>Name:</label>
+        <input type="text" v-on:keyup.enter="logName">
+        <label>Age:</label>
+        <input type="text" v-on:keyup="logAge" >
+    </div> -->
+ 
+
+    <script>
+    //  a3学习 键盘事件 
+    var vueapp3 =  new Vue({
+        el:'#vue-app3',
+        data:{
+        },
+        methods: {
+            logName:function(){
+                console.log('你输入了你的名字');
+            },
+            logAge:function(){
+                console.log('你输入了你的年龄');
+            },
+        }
+    })
+
+    </script>
+  
+
+
+
+
+
+
+
+
+  <!-- v-model 33 绑定 修饰符 -->
+  <!-- <div  id="yz-hello" >
+      <input type="text" v-model.lazy.trim.number="body" /> 添加多个修饰符 
+  </div> -->
+  <script>
+    // b33  v-model 修饰符 
+    // var vm = new Vue({
+    //     el: "#yz-hello",
+    //         data: {  
+    //             body:'',
+    //     },
+    // })
+  </script>
+</body>
+</html>

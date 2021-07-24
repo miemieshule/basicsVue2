@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/vue-js/vue.js"></script>
+</head>
+<body>
+  
+      <!-- 登录切换小案例 -->
+    <script>
+
+    // 切换后输入值依然存在
+
+    // 切换后值存在问题，引出渲染机制
+    // 复用已存在的真实dom，替换真实dom内容而不渲染新元素，
+    // 上一个输入值存入inpout，切换元素内容，但是元素本身存储值未清除，
+
+    // 解决
+    // key标识 
+    </script>
+
+    <div id="yz-hello3">
+      <span v-if="state" >
+        <label for="isuer">用户账号
+          <input type="text" id="isuer" placeholder="用户账号" key="0" >
+        </label>
+      </span>
+      <span v-else>
+        <label for="eamai">用户邮箱
+          <input type="text"  id="eamai" placeholder="用户邮箱"  key="1" >
+        </label>
+      </span>
+      <button @click="state = !state">切换</button>
+    </div>
+
+    <script>      
+      var vm = new Vue({
+          el: "#yz-hello3",  
+          data: {
+              state: true
+          },
+            
+      })
+      </script>
+
+</body>
+</html>

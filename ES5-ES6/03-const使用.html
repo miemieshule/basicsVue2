@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>const的使用 </title>
+</head>
+<body>
+  
+  
+
+    
+    <script>
+    //       < !--变量 可以改变 常量不可改变-- >
+    // < !--常量声明时候必须赋值 赋值后不可改-- > 
+    // < !--常量中的 对象不可修改 对象值可以改变-- >
+    //  但是对象值的地址映射，会直接改变值
+    </script>
+    <script>
+      const k = {
+        bk:1,
+      }
+      console.log(k.bk);
+    
+      k.bk = 2 ;
+      console.log(k.bk);
+
+      // const的对象不可改 ，不可改变声明对象k的，内存指向，
+      k = {};
+      console.log(k);
+
+  </script>
+
+</body>
+</html>

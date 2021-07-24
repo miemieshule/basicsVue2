@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> vue  05 -事件监听 </title>
+
+      <!-- 样式文件 -->
+      <link rel="stylesheet" href="/vuejs-playlist/style.css">
+      <!-- vue2 文件引入 -->
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  
+      <!-- axiios文件引入 类似ajax -->
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+  <!-- a3学习 点击事件 -->
+    <!-- <div id="vue-app">
+        <h1>Events</h1>
+        <button v-on:click="age++">Add 加一岁 </button>
+        <button v-on:click="age--" >subercat 减一岁 </button>
+        <p>age: {{age}}</p>
+    </div> -->
+
+    <!-- a3 双击事件 -->
+    <!-- <div id="vue-app">
+        <h1>Events</h1>
+        <button v-on:click="add(1)">Add 加1岁 </button>
+        <button v-on:click="subtrct(1)" >subercat 减1岁 </button>
+        <button v-on:dblclick="add(10)">Add 加10岁 </button>
+        <button v-on:dblclick="subtrct(10)" >subercat 减10岁 </button>
+        <p>age: {{age}}</p>
+    </div> -->
+
+
+    <!-- 34 v-on 事件  -->
+    <!-- <div id="yz-hello">   
+        <button v-on:click="plus" >++</button>
+        <p>{{counter}}</p>
+    </div> -->
+    <!-- a绑定方式 JavaScript表达式  month方法绑定 -->
+
+
+
+    <!-- 理念 -->
+    <!-- 在模板上生成HTML虚拟dom元素 -->
+    <!-- 35 v-on 事件   -->
+    <!-- 获取点击事件元素 -->
+    <!-- <div id="yz-hello">   
+        <button v-on:click="plus" >++</button> -->
+        <!-- <button v-on:click="plus" >++</button>
+        <button v-on:click="plus($event)" >++</button> -->
+        <!-- <p>{{counter}}</p>
+    </div> -->
+
+
+    <!-- 36 v-on 事件   -->
+    <!-- 点击事件实现功能  影藏显示dom元素-->
+    <!-- <div id="yz-hello">   
+        <button v-on:click="toggle" >点击影藏消失</button>
+        <p v-show = "shown">你好
+            <a href="">你好</a>
+            <a href="">你好</a>
+            <a href="">你好</a>
+        </p>
+    </div> -->
+
+
+
+
+
+
+
+
+    <script>
+    // B1
+    // 传参
+    // 同时传入多个参数，正常参数于event参数 
+    </script>
+    <div id="vue-app">
+      <h1>Events</h1>
+      <button v-on:click="value($event,'abb')">多参同传 </button>
+  </div>
+
+
+</body>
+<script src="/vuejs-playlist/05-事件监听/05事件监听.js"></script>
+</html>
